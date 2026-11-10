@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>systeme.io stand-in</title>
+  <style>
+    /* Roughly what the live mpmove.com page looks like structurally: one section, narrow rows. */
+    body { margin: 0; font-family: Lato, sans-serif; background: #F8F6F2; }
+    section { padding: 5px; }
+    [id^="row-"] { padding: 5px; max-width: 960px; margin: 0 auto; }
+    #optinform-sim { padding: 15px 30px; border: 2px solid #6E4E73; border-radius: 20px; display: grid; gap: 10px; }
+    #optinform-sim input:not([type=checkbox]) { padding: 12px; font-size: 16px; }
+    .badge { position: fixed; right: 5px; bottom: 5px; background: #123; color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <!-- Stand-in for a systeme.io page: same ids and attributes main.js looks for on the real one
+       (checked against the live mpmove.com markup). The form here is plain HTML, not React.
+       Add ?nophone to the address to test a form without a phone field. -->
+  <div id="app">
+    <div><div><div>
+      <section id="section-8bedf019">
+        <div><div>
+          <div id="row-raw"><div><div id="rawhtml-0001">
+{{BLOCK}}
+          </div></div></div>
+
+          <div id="row-4576bf4e"><h1 id="headline-4615946c">OLD HEADLINE: this must not be visible</h1></div>
+
+          <div id="row-202fbd1c"><div><div>
+            <form id="optinform-sim">
+              <div><input id="field-a" name="first_name" type="text" placeholder="First name"></div>
+              <div><input id="field-b" name="email" type="email" placeholder="Email"></div>
+              <div id="field-c"><button type="button" role="combobox">ZA</button><input type="tel" placeholder="Phone number"></div>
+              <div id="checkbox-d"><label><input type="checkbox"><div>I agree to receive emails.</div></label></div>
+              <button data-test-id="submit-form-button" id="submit-button-e"><div>SHOW ME THE SYSTEM</div></button>
+            </form>
+            <p id="text-below">OLD TEXT NEXT TO THE FORM: this must not be visible</p>
+          </div></div></div>
+
+          <div id="row-e4d982d0"><p id="text-18436f3b">OLD FOOTER TEXT: this must not be visible</p></div>
+        </div></div>
+      </section>
+    </div></div></div>
+    <a class="badge" href="https://systeme.io/?sa=sim">Powered by systeme.io</a>
+  </div>
+
+  <script>
+    // Fake systeme.io behaviour: validate, then either show an error inside the form or "sign up".
+    (() => {
+      const form = document.querySelector('#optinform-sim');
+      const phoneWrap = document.querySelector('#field-c');
+      if (location.search.includes('nophone')) phoneWrap.remove();
+      form.querySelector('[data-test-id="submit-form-button"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        form.querySelectorAll('.err').forEach((n) => n.remove());
+        const value = (sel) => (form.querySelector(sel) || { value: 'n/a' }).value.trim();
+        const got = {
+          first_name: value('input[name="first_name"]'),
+          email: value('input[name="email"]'),
+          phone: value('input[type="tel"]'),
+          consent: form.querySelector('input[type="checkbox"]').checked,
+        };
+        const errors = [];
+        if (!got.first_name) errors.push('First name is required');
+        if (!got.email.includes('@')) errors.push('Email is required');
+        if (!got.phone) errors.push('Phone number is required');
+        if (!got.consent) errors.push('Please agree to receive emails from me');
+        if (location.search.includes('fail')) errors.push('This email address is not accepted');
+        window.__sim = { got, errors };
+        if (errors.length) {
+          errors.forEach((text) => {
+            const p = document.createElement('p');
+            p.className = 'err';
+            p.textContent = text;
+            form.append(p);
+          });
+          return;
+        }
+        // The real page goes to the next funnel step; here the form just becomes a thank-you note.
+        setTimeout(() => { form.innerHTML = '<p>You\'re in! Thanks for subscribing.</p>'; }, 600);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!-- MP Move page. Paste this whole block into one Raw HTML element. To undo, delete the element. -->
+<script>document.documentElement.classList.add('js')</script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');:root{--cream: #F8F6F2;--paper: #FFFFFF;--ink: #1E1722;--ink-soft: #5B5160;--plum: #6E4E73;--plum-deep: #2A1B2E;--plum-soft: #EFE7F0;--blush: #E9C7C0;--gold: #D9A560;--line: rgba(110, 78, 115, .18);--serif: "Playfair Display", Georgia, "Times New Roman", serif;--sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;--ease: cubic-bezier(.22, 1, .36, 1);--radius: 28px;--nav-h: 76px;}*, *::before, *::after{box-sizing: border-box;}[hidden]{display: none !important;}html{overflow-x: clip;scroll-behavior: smooth;scroll-padding-top: calc(var(--nav-h) + 12px);-webkit-text-size-adjust: 100%;}body{margin: 0;background: var(--cream);color: var(--ink);font-family: var(--sans);font-size: 17px;line-height: 1.6;-webkit-font-smoothing: antialiased;overflow-x: hidden;}h1, h2, h3, p, ol, ul, figure{margin: 0;}ol, ul{padding: 0;list-style: none;}a{color: inherit;text-decoration: none;}img{display: block;max-width: 100%;}em{font-style: italic;}::selection{background: var(--plum);color: var(--cream);}:focus-visible{outline: 2px solid var(--gold);outline-offset: 3px;border-radius: 6px;}#mpm{position: relative;background: var(--cream);color: var(--ink);font-family: var(--sans);font-size: 17px;line-height: 1.6;text-align: left;}html:has(#mpm) [id^="section-"]:not(:has(#mpm)):not(:has([data-test-id="submit-form-button"])), html:has(#mpm) [id^="row-"]:not(:has(#mpm)):not(:has([data-test-id="submit-form-button"])){display: none !important;}html.mpm-live .sticky-cta{bottom: calc(60px + env(safe-area-inset-bottom));}.wrap{width: 100%;max-width: 1240px;margin-inline: auto;padding-inline: clamp(20px, 5vw, 56px);}.skip{position: fixed;left: 16px;top: -60px;z-index: 100;background: var(--plum-deep);color: var(--cream);padding: 10px 16px;border-radius: 999px;font-weight: 600;font-size: 14px;transition: top .2s var(--ease);}.skip:focus{top: 16px;}.progress{position: fixed;inset: 0 0 auto 0;height: 3px;z-index: 60;pointer-events: none;}.progress span{display: block;height: 100%;background: linear-gradient(90deg, var(--plum), var(--gold));transform-origin: 0 50%;transform: scaleX(var(--p, 0));}.nav{position: fixed;inset: 0 0 auto 0;z-index: 50;height: var(--nav-h);display: flex;align-items: center;justify-content: space-between;gap: 24px;padding-inline: clamp(20px, 5vw, 56px);transition: height .4s var(--ease), background-color .4s, box-shadow .4s, backdrop-filter .4s;}.nav.scrolled{height: 62px;background: rgba(248, 246, 242, .78);-webkit-backdrop-filter: saturate(1.4) blur(16px);backdrop-filter: saturate(1.4) blur(16px);box-shadow: 0 1px 0 var(--line);}.logo{display: inline-flex;align-items: center;gap: 10px;}.logo-mark{width: 34px;height: 34px;display: block;transition: transform .6s var(--ease);}.logo:hover .logo-mark{transform: rotate(-8deg) scale(1.06);}.logo-mark svg{width: 100%;height: 100%;display: block;}.logo-mark rect{fill: var(--plum-deep);}.logo-mark path{fill: none;stroke: var(--cream);stroke-width: 5;stroke-linecap: round;stroke-linejoin: round;}.logo-mark circle{fill: var(--gold);}.logo-word{font-family: var(--serif);font-weight: 600;font-size: 20px;letter-spacing: -.01em;}.logo-word em{color: var(--plum);}.nav-links{display: none;gap: 34px;font-size: 15px;font-weight: 500;color: var(--ink-soft);}.nav-links a{position: relative;padding-block: 6px;transition: color .3s;}.nav-links a::after{content: "";position: absolute;left: 0;right: 0;bottom: 0;height: 1.5px;background: var(--plum);transform: scaleX(0);transform-origin: 100% 50%;transition: transform .45s var(--ease);}.nav-links a:hover{color: var(--ink);}.nav-links a:hover::after{transform: scaleX(1);transform-origin: 0 50%;}@media (min-width: 900px){.nav-links{display: flex;}}.btn{position: relative;overflow: hidden;isolation: isolate;display: inline-flex;align-items: center;justify-content: center;gap: 10px;border: 0;border-radius: 999px;cursor: pointer;font: 600 16px/1 var(--sans);letter-spacing: .01em;padding: 18px 28px;background: var(--plum-deep);color: var(--cream);transition: background-color .35s, box-shadow .35s, color .35s;will-change: transform;}.btn::before{content: "";position: absolute;inset: 0;z-index: -1;border-radius: inherit;background: var(--plum);transform: translateY(101%);transition: transform .5s var(--ease);}.btn:hover::before, .btn:focus-visible::before{transform: translateY(0);}.btn:hover{box-shadow: 0 14px 30px -12px rgba(42, 27, 46, .55);}.btn:active{scale: .98;}.arrow{width: 18px;height: 18px;flex: none;fill: none;stroke: currentColor;stroke-width: 1.8;stroke-linecap: round;stroke-linejoin: round;transition: transform .45s var(--ease);}.btn:hover .arrow, .link:hover .arrow, .sticky-cta:hover .arrow{transform: translateX(5px);}.btn-small{padding: 12px 18px;font-size: 14px;}.btn-primary{width: 100%;padding-block: 20px;font-size: 17px;}.btn-shine{position: absolute;inset: 0;z-index: 0;pointer-events: none;background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .28) 50%, transparent 65%);transform: translateX(-120%);animation: shine 4.5s var(--ease) 2.2s infinite;}@keyframes shine{0%, 55%{transform: translateX(-120%);}85%, 100%{transform: translateX(120%);}}.btn.loading{pointer-events: none;opacity: .8;}.btn-light{background: var(--cream);color: var(--plum-deep);padding: 22px 34px;font-size: 18px;}.btn-light::before{background: var(--gold);}.link{display: inline-flex;align-items: center;gap: 10px;font-weight: 600;color: var(--plum);position: relative;padding-bottom: 6px;}.link::after{content: "";position: absolute;left: 0;right: 0;bottom: 0;height: 1.5px;background: currentColor;transform-origin: 0 50%;transition: transform .5s var(--ease);}.link:hover::after{transform: scaleX(.35);}.hero{position: relative;isolation: isolate;min-height: 100svh;display: flex;align-items: center;padding: calc(var(--nav-h) + 28px) 0 72px;}.hero-canvas{position: absolute;inset: 0;z-index: -2;width: 100%;height: 100%;-webkit-mask-image: linear-gradient(#000 65%, transparent);mask-image: linear-gradient(#000 65%, transparent);}.hero-grain{position: absolute;inset: 0;z-index: -1;opacity: .07;pointer-events: none;mix-blend-mode: multiply;background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}.hero-grid{display: grid;gap: 44px;align-items: center;}@media (min-width: 1000px){.hero-grid{grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);gap: clamp(40px, 6vw, 88px);}}.eyebrow{display: inline-flex;align-items: center;gap: 10px;padding: 8px 16px 8px 12px;border-radius: 999px;background: rgba(255, 255, 255, .7);border: 1px solid var(--line);font-size: 13px;font-weight: 600;letter-spacing: .08em;text-transform: uppercase;color: var(--plum);-webkit-backdrop-filter: blur(8px);backdrop-filter: blur(8px);}.pulse{position: relative;width: 8px;height: 8px;border-radius: 50%;background: var(--gold);flex: none;}.pulse::after{content: "";position: absolute;inset: 0;border-radius: 50%;background: var(--gold);animation: pulse 2.2s ease-out infinite;}@keyframes pulse{to{transform: scale(3.4);opacity: 0;}}.hero-title{margin-top: 26px;font-family: var(--serif);font-weight: 500;font-size: clamp(2.55rem, 5.6vw, 5rem);line-height: 1.04;letter-spacing: -.025em;text-wrap: balance;}.hl{position: relative;display: inline-block;white-space: nowrap;font-style: italic;color: var(--plum);}.hl-line{position: absolute;z-index: -1;left: -2%;bottom: -.17em;width: 104%;height: .26em;overflow: visible;pointer-events: none;}.hl-line path{fill: none;stroke: var(--gold);stroke-width: 3.5;stroke-linecap: round;stroke-dasharray: 1;stroke-dashoffset: 0;}.w{display: inline-block;overflow: hidden;vertical-align: top;padding: 0 .06em .14em;margin: 0 -.06em -.14em;}.wi{display: inline-block;will-change: transform;}.hero-kicker{margin-top: 30px;display: flex;flex-wrap: wrap;gap: 8px 10px;font-weight: 600;font-size: 15px;color: var(--plum-deep);}.hero-kicker span{padding: 7px 14px;border-radius: 999px;background: var(--plum-soft);border: 1px solid transparent;transition: background-color .3s, border-color .3s, translate .4s var(--ease);}.hero-kicker span:hover{background: var(--paper);border-color: var(--line);translate: 0 -2px;}.hero-lede{margin-top: 22px;max-width: 52ch;font-size: clamp(1.05rem, 1.3vw, 1.2rem);color: var(--ink-soft);}.scroll-cue{margin-top: 40px;display: none;align-items: center;gap: 14px;font-size: 14px;font-weight: 600;letter-spacing: .06em;text-transform: uppercase;color: var(--plum);}.scroll-cue-line{position: relative;width: 56px;height: 1.5px;background: var(--line);overflow: hidden;}.scroll-cue-line::after{content: "";position: absolute;inset: 0;background: var(--plum);animation: cue 2.4s var(--ease) infinite;}@keyframes cue{0%{transform: translateX(-100%);}60%, 100%{transform: translateX(100%);}}@media (min-width: 1000px){.scroll-cue{display: inline-flex;}}.hero-form{position: relative;width: 100%;max-width: 480px;justify-self: center;}@media (min-width: 1000px){.hero-form{justify-self: end;}}.card-glow{position: absolute;inset: -14% -12%;z-index: -1;border-radius: 50%;background: radial-gradient(45% 45% at 30% 30%, rgba(110, 78, 115, .38), transparent 70%), radial-gradient(40% 40% at 72% 70%, rgba(217, 165, 96, .38), transparent 70%);filter: blur(46px);animation: drift 12s ease-in-out infinite alternate;}@keyframes drift{to{transform: translate(3%, -4%) rotate(14deg) scale(1.06);}}.form{position: relative;overflow: hidden;background: rgba(255, 255, 255, .86);-webkit-backdrop-filter: blur(18px) saturate(1.3);backdrop-filter: blur(18px) saturate(1.3);border: 1px solid rgba(255, 255, 255, .9);border-radius: var(--radius);padding: clamp(24px, 3.4vw, 38px);box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 40px 80px -40px rgba(42, 27, 46, .45), 0 0 0 1px var(--line);}.form::before{content: "";position: absolute;inset: 0;pointer-events: none;border-radius: inherit;background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(110, 78, 115, .09), transparent 60%);}.form-body, .form-done{position: relative;}.form-tag{font-size: 12px;font-weight: 600;letter-spacing: .14em;text-transform: uppercase;color: var(--plum);}.form-title{margin-top: 8px;font-family: var(--serif);font-weight: 500;font-size: clamp(1.6rem, 2.3vw, 2rem);line-height: 1.15;letter-spacing: -.015em;}.form-sub{margin-top: 8px;font-size: 15px;color: var(--ink-soft);}.field{position: relative;margin-top: 20px;}.field input{width: 100%;height: 60px;padding: 22px 16px 6px;border: 1px solid var(--line);border-radius: 14px;background: var(--paper);color: var(--ink);font: 500 16px var(--sans);transition: border-color .3s, box-shadow .3s, background-color .3s;appearance: none;}.field input:hover{border-color: rgba(110, 78, 115, .4);}.field input:focus{outline: 0;border-color: var(--plum);box-shadow: 0 0 0 4px rgba(110, 78, 115, .14);}.field label{position: absolute;left: 17px;top: 19px;pointer-events: none;color: var(--ink-soft);font-size: 16px;transform-origin: 0 0;transition: transform .3s var(--ease), color .3s;}.field input:focus + label, .field input:not(:placeholder-shown) + label{transform: translateY(-11px) scale(.74);color: var(--plum);}.field-line{position: absolute;left: 14px;right: 14px;top: 59px;height: 2px;border-radius: 2px;background: var(--gold);transform: scaleX(0);transform-origin: 0 50%;transition: transform .5s var(--ease);}.field input:focus ~ .field-line{transform: scaleX(1);}.field.invalid input{border-color: #B4423C;box-shadow: 0 0 0 4px rgba(180, 66, 60, .12);}.field-error{min-height: 0;font-size: 13px;font-weight: 500;color: #B4423C;}.field-error:not(:empty){margin-top: 6px;}.consent{margin-top: 18px;display: grid;grid-template-columns: 22px 1fr;gap: 12px;align-items: start;cursor: pointer;font-size: 13px;line-height: 1.5;color: var(--ink-soft);}.consent input{position: absolute;opacity: 0;width: 22px;height: 22px;margin: 0;cursor: pointer;}.check{width: 22px;height: 22px;border-radius: 7px;border: 1.5px solid rgba(110, 78, 115, .45);background: var(--paper);display: grid;place-items: center;transition: background-color .25s, border-color .25s, scale .25s var(--ease);}.check svg{width: 14px;height: 14px;fill: none;stroke: var(--cream);stroke-width: 2.2;stroke-linecap: round;stroke-linejoin: round;}.check path{stroke-dasharray: 1;stroke-dashoffset: 1;transition: stroke-dashoffset .35s var(--ease) .05s;}.consent:hover .check{border-color: var(--plum);}.consent input:checked + .check{background: var(--plum);border-color: var(--plum);scale: 1.06;}.consent input:checked + .check path{stroke-dashoffset: 0;}.consent input:focus-visible + .check{outline: 2px solid var(--gold);outline-offset: 3px;}.form .btn-primary{margin-top: 20px;}.form-note{margin-top: 14px;display: flex;gap: 8px;align-items: flex-start;justify-content: center;font-size: 12.5px;color: var(--ink-soft);text-align: left;}.form-note svg{width: 15px;height: 15px;flex: none;margin-top: 2px;fill: none;stroke: var(--plum);stroke-width: 1.4;stroke-linecap: round;}.form-done{display: grid;justify-items: center;align-content: center;text-align: center;gap: 4px;padding-block: 24px;}.done-tick{width: 76px;height: 76px;margin-bottom: 14px;fill: none;stroke: var(--plum);stroke-width: 3;stroke-linecap: round;stroke-linejoin: round;}.done-tick circle, .done-tick path{stroke-dasharray: 1;stroke-dashoffset: 1;animation: draw .9s var(--ease) .1s forwards;}.done-tick path{stroke: var(--gold);stroke-width: 4;animation-delay: .6s;animation-duration: .5s;}@keyframes draw{to{stroke-dashoffset: 0;}}.preview-flag{margin-top: 18px;padding: 8px 14px;border-radius: 10px;background: var(--plum-soft);font-size: 12.5px;color: var(--plum-deep);}.band{background: var(--plum-deep);color: var(--cream);overflow: hidden;padding-block: clamp(18px, 2.6vw, 30px);}.band-track{display: flex;width: max-content;will-change: transform;}.band-set{display: flex;align-items: center;flex: none;}.band-set span{font-family: var(--serif);font-size: clamp(1.4rem, 3vw, 2.4rem);letter-spacing: -.01em;white-space: nowrap;padding-inline: clamp(18px, 2.6vw, 38px);}.band-set em{color: var(--gold);}.band-set i{width: 10px;height: 10px;flex: none;background: var(--gold);rotate: 45deg;border-radius: 2px;}.section-label{display: inline-flex;align-items: center;gap: 12px;font-size: 13px;font-weight: 600;letter-spacing: .14em;text-transform: uppercase;color: var(--plum);}.section-label::before{content: "";width: 28px;height: 1.5px;background: var(--gold);}.section-title{margin-top: 16px;font-family: var(--serif);font-weight: 500;font-size: clamp(2.3rem, 5vw, 4.2rem);line-height: 1.05;letter-spacing: -.025em;}.section-title em{color: var(--plum);}.about{padding-block: clamp(80px, 11vw, 160px);}.about-grid{display: grid;gap: clamp(48px, 7vw, 104px);align-items: center;}@media (min-width: 900px){.about-grid{grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);}}.portrait{position: relative;max-width: 460px;width: calc(100% - 20px);margin-inline: auto;}.portrait-frame{position: absolute;inset: 0;border: 1.5px solid var(--plum);border-radius: var(--radius);translate: 18px 18px;transition: translate .7s var(--ease);}.portrait:hover .portrait-frame{translate: 10px 10px;}.portrait-img{position: relative;aspect-ratio: 1;overflow: hidden;border-radius: var(--radius);background: var(--plum-soft);box-shadow: 0 40px 70px -40px rgba(42, 27, 46, .5);}.portrait-img img{width: 100%;height: 100%;object-fit: cover;scale: 1.16;will-change: transform;}.portrait-tag{position: absolute;left: -10px;bottom: 26px;display: inline-flex;align-items: center;gap: 10px;padding: 10px 16px;border-radius: 999px;background: var(--paper);box-shadow: 0 14px 30px -14px rgba(42, 27, 46, .45), 0 0 0 1px var(--line);font-size: 13.5px;font-weight: 600;}.about-big{margin-top: 28px;font-family: var(--serif);font-size: clamp(1.45rem, 2.5vw, 2.1rem);line-height: 1.3;letter-spacing: -.01em;max-width: 24ch;}.about-body{margin-top: 20px;max-width: 50ch;color: var(--ink-soft);font-size: 1.08rem;}.about-copy .link{margin-top: 30px;}.inside{padding-bottom: clamp(80px, 11vw, 160px);}.section-head{max-width: 760px;}.pillars{margin-top: clamp(36px, 5vw, 64px);display: grid;gap: 18px;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));}.pillar{position: relative;overflow: hidden;padding: 28px 26px 30px;min-height: 280px;display: flex;flex-direction: column;background: var(--paper);border-radius: 24px;box-shadow: 0 0 0 1px var(--line);transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));transition: transform .4s ease-out, box-shadow .4s, background-color .4s;}.pillar::before{content: "";position: absolute;inset: 0;opacity: 0;transition: opacity .4s;background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(110, 78, 115, .16), transparent 62%);}.pillar:hover{box-shadow: 0 0 0 1px rgba(110, 78, 115, .4), 0 34px 60px -34px rgba(42, 27, 46, .5);}.pillar:hover::before{opacity: 1;}.pillar > *{position: relative;}.pillar-num{position: absolute;right: 24px;top: 20px;font-family: var(--serif);font-style: italic;font-size: 1.05rem;color: rgba(110, 78, 115, .55);}.pillar .icon{width: 62px;height: 62px;padding: 13px;border-radius: 18px;background: var(--plum-soft);color: var(--plum);transition: background-color .4s, color .4s, rotate .6s var(--ease);}.pillar:hover .icon{background: var(--plum-deep);color: var(--cream);rotate: -6deg;}.pillar h3{margin-top: auto;padding-top: 44px;font-family: var(--serif);font-weight: 500;font-size: 1.5rem;line-height: 1.2;letter-spacing: -.01em;}.pillar p{margin-top: 10px;font-size: .98rem;color: var(--ink-soft);}.icon{fill: none;stroke: currentColor;stroke-width: 2;stroke-linecap: round;stroke-linejoin: round;}.trust{position: relative;overflow: hidden;isolation: isolate;background: var(--plum-deep);color: var(--cream);border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;padding-block: clamp(72px, 9vw, 130px) clamp(80px, 10vw, 150px);}.trust-orb{position: absolute;z-index: -1;left: 50%;bottom: -46%;width: min(1100px, 130vw);aspect-ratio: 1;translate: -50% 0;border-radius: 50%;background: radial-gradient(closest-side, rgba(110, 78, 115, .9), rgba(217, 165, 96, .16) 62%, transparent 72%);filter: blur(30px);animation: breathe 9s ease-in-out infinite alternate;}@keyframes breathe{to{transform: scale(1.12);opacity: .75;}}.trust-list{display: grid;gap: 0;}.trust-list li{padding: 30px 0;border-top: 1px solid rgba(248, 246, 242, .14);}.trust-list li:last-child{border-bottom: 1px solid rgba(248, 246, 242, .14);}@media (min-width: 860px){.trust-list{grid-template-columns: repeat(3, 1fr);border-block: 1px solid rgba(248, 246, 242, .14);}.trust-list li, .trust-list li:last-child{border: 0;padding: 40px clamp(20px, 3vw, 44px);}.trust-list li + li{border-left: 1px solid rgba(248, 246, 242, .14);}.trust-list li:first-child{padding-left: 0;}}.trust-list .icon{width: 44px;height: 44px;color: var(--gold);}.trust-list h3{margin-top: 18px;font-family: var(--serif);font-weight: 500;font-size: 1.45rem;letter-spacing: -.01em;}.trust-list p{margin-top: 8px;color: rgba(248, 246, 242, .72);font-size: .98rem;max-width: 34ch;}.cta{margin-top: clamp(72px, 10vw, 140px);text-align: center;display: grid;justify-items: center;}.cta-title{font-family: var(--serif);font-weight: 500;font-size: clamp(2.6rem, 7vw, 6rem);line-height: 1;letter-spacing: -.03em;max-width: 14ch;text-wrap: balance;}.cta-title em{color: var(--gold);}.cta-sub{margin-top: 22px;font-size: 1.15rem;color: rgba(248, 246, 242, .75);}.cta .btn{margin-top: 38px;}.footer{background: var(--plum-deep);color: rgba(248, 246, 242, .7);padding-block: 34px calc(34px + env(safe-area-inset-bottom));border-top: 1px solid rgba(248, 246, 242, .14);font-size: 13.5px;}.footer-grid{display: grid;gap: 18px;align-items: center;}@media (min-width: 860px){.footer-grid{grid-template-columns: auto 1fr auto;gap: 44px;}}.footer .logo-word{color: var(--cream);}.footer .logo-word em{color: var(--gold);}.footer .logo-mark rect{fill: var(--cream);}.footer .logo-mark path{stroke: var(--plum-deep);}.footer-note{max-width: 70ch;}@media (max-width: 859px){.footer{padding-bottom: calc(96px + env(safe-area-inset-bottom));}}.sticky-cta{position: fixed;z-index: 55;left: 16px;right: 16px;bottom: calc(14px + env(safe-area-inset-bottom));display: flex;align-items: center;justify-content: center;gap: 10px;padding: 17px 22px;border-radius: 999px;background: var(--plum);color: var(--cream);font-weight: 600;box-shadow: 0 18px 36px -14px rgba(42, 27, 46, .7);translate: 0 140%;transition: translate .55s var(--ease);}.sticky-cta.show{translate: 0 0;}@media (min-width: 860px){.sticky-cta{display: none;}}html.js .reveal{opacity: 0;translate: 0 30px;transition: opacity .9s var(--ease) var(--d, 0s), translate .9s var(--ease) var(--d, 0s);}html.js .reveal.in{opacity: 1;translate: 0 0;}html.js .reveal .icon *{stroke-dasharray: 1;stroke-dashoffset: 1;}html.js .reveal.in .icon *{animation: draw 1.3s var(--ease) calc(var(--d, 0s) + .25s) forwards;}html.js .hero-title{visibility: hidden;}html.js [data-hero], html.js [data-hero-card]{opacity: 0;}html.js .hl-line path{stroke-dashoffset: 1;}html.static .hero-title, html.no-intro .hero-title{visibility: visible;}html.static [data-hero], html.static [data-hero-card], html.no-intro [data-hero], html.no-intro [data-hero-card]{opacity: 1;}html.static .hl-line path, html.no-intro .hl-line path{stroke-dashoffset: 0;}html.static .reveal{opacity: 1;translate: 0 0;transition: none;}html.static .reveal .icon *{stroke-dashoffset: 0;animation: none;}@media (prefers-reduced-motion: reduce){html{scroll-behavior: auto;}*, *::before, *::after{animation: none !important;transition-duration: .01ms !important;}.done-tick circle, .done-tick path, html.js .reveal .icon *{stroke-dashoffset: 0;}}</style>
+<div id="mpm">
+  <a class="skip" href="#signup">Skip to the sign-up form</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <div class="nav" id="nav" role="banner">
+    <a class="logo" href="#top" aria-label="MP Move, back to top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16"/><path d="M16 44V22l10 13 10-13v22"/><circle cx="47" cy="42" r="4"/></svg>
+      </span>
+      <span class="logo-word">MP <em>Move</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Page sections">
+      <a href="#about">About Marius</a>
+      <a href="#inside">What's inside</a>
+      <a href="#trust">Why join</a>
+    </nav>
+    <a class="btn btn-small" href="#signup" data-focus-form>
+      <span>Free training</span>
+      <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    
+    <section class="hero">
+      <canvas class="hero-canvas" id="aurora" aria-hidden="true"></canvas>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-hero>
+            <span class="pulse" aria-hidden="true"></span>
+            100% free beginner training
+          </p>
+
+          <h1 class="hero-title" data-split>
+            Learn how
+            <span class="hl">everyday people<svg class="hl-line" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12C52 4 98 3 150 8s98 6 147-3"/></svg></span>
+            are building online businesses in 2026
+          </h1>
+
+          <p class="hero-kicker" data-hero>
+            <span>No experience.</span>
+            <span>No huge following.</span>
+            <span>No complicated tech.</span>
+          </p>
+
+          <p class="hero-lede" data-hero>
+            Learn the beginner-friendly system helping everyday people start an online business,
+            without needing a huge audience, creating products from scratch, or figuring everything out alone.
+          </p>
+
+          <a class="scroll-cue" href="#about" data-hero>
+            <span class="scroll-cue-line" aria-hidden="true"></span>
+            Meet Marius
+          </a>
+        </div>
+
+        <div class="hero-form" id="signup" data-hero-card>
+          <div class="card-glow" aria-hidden="true"></div>
+          <form class="form" id="optin" novalidate>
+            <div class="form-body">
+              <p class="form-tag">Free training</p>
+              <h2 class="form-title">See the system for yourself</h2>
+              <p class="form-sub">Tell me where to send it and you'll get instant access.</p>
+
+              <div class="field">
+                <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder=" " required>
+                <label for="first_name">First name</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-first_name" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder=" " required>
+                <label for="email">Email address</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-email" role="alert"></p>
+              </div>
+
+              
+              <div class="field" id="phone-field" hidden>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder=" ">
+                <label for="phone">Phone number</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-phone" role="alert"></p>
+              </div>
+
+              <label class="consent" for="consent">
+                <input id="consent" name="consent" type="checkbox" required>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path pathLength="1" d="M3.5 8.5l3 3 6-7"/></svg>
+                </span>
+                <span class="consent-text">
+                  I agree to receive emails, resources, and promotional messages from Lizelle de Kock and
+                  Digital Magnetic System. I can unsubscribe at any time.
+                </span>
+              </label>
+              <p class="field-error" id="err-consent" role="alert"></p>
+
+              <button class="btn btn-primary" type="submit" data-magnetic>
+                <span class="btn-label">Show me the system</span>
+                <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+                <span class="btn-shine" aria-hidden="true"></span>
+              </button>
+
+              <p class="form-note">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="2"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></svg>
+                We respect your privacy. Your information is safe and will never be shared.
+              </p>
+            </div>
+
+            <div class="form-done" id="done" hidden aria-live="polite">
+              <svg class="done-tick" viewBox="0 0 64 64" aria-hidden="true">
+                <circle pathLength="1" cx="32" cy="32" r="28"/>
+                <path pathLength="1" d="M20 33l8 8 16-18"/>
+              </svg>
+              <h2 class="form-title" id="done-title">You're in.</h2>
+              <p class="form-sub">Check your inbox. The training is on its way.</p>
+              <p class="preview-flag" id="preview-flag" hidden>Preview mode: the form is not connected yet, so nothing was sent.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="band" aria-label="Free training. No experience needed. Start from anywhere.">
+      <div class="band-track" id="marquee" aria-hidden="true">
+        <div class="band-set">
+          <span>100% free training</span><i></i>
+          <span><em>No experience</em> needed</span><i></i>
+          <span>Start from anywhere</span><i></i>
+          <span>100% free training</span><i></i>
+          <span><em>No experience</em> needed</span><i></i>
+          <span>Start from anywhere</span><i></i>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <figure class="portrait reveal">
+          <div class="portrait-frame" aria-hidden="true"></div>
+          <div class="portrait-img">
+            <img id="portrait" src="https://d1yei2z3i6k35z.cloudfront.net/19617979/6aeaf56224b564.09677293_image_2026-11-04_110538305.png" alt="Marius standing outdoors on a lawn" loading="lazy" width="640" height="640">
+          </div>
+          <figcaption class="portrait-tag">
+            <span class="pulse" aria-hidden="true"></span> Marius, founder of MP Move
+          </figcaption>
+        </figure>
+
+        <div class="about-copy">
+          <p class="section-label reveal">Your guide</p>
+          <h2 class="section-title reveal" style="--d:.05s">Hi, I'm <em>Marius.</em></h2>
+          <p class="about-big reveal" style="--d:.1s">
+            I'm in my mid 20s, three years into the corporate world, but entrepreneurship has always been my dream.
+          </p>
+          <p class="about-body reveal" style="--d:.15s">
+            If you're ready to explore new opportunities, build a business of your own, and work toward
+            greater financial freedom, let's get started.
+          </p>
+          <a class="link reveal" style="--d:.2s" href="#signup" data-focus-form>
+            Get the free training
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="inside" id="inside">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label reveal">What's inside</p>
+          <h2 class="section-title reveal" style="--d:.05s">A simpler way to <em>start.</em></h2>
+        </div>
+
+        <ol class="pillars">
+          <li class="pillar reveal" data-tilt>
+            <span class="pillar-num">01</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect pathLength="1" x="6" y="9" width="36" height="24" rx="4"/>
+              <path pathLength="1" d="M18 41h12M24 33v8"/>
+              <path pathLength="1" d="M14 25l6-6 5 4 9-8"/>
+            </svg>
+            <h3>Simple strategies</h3>
+            <p>No complicated tech or confusing business models.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.08s" data-tilt>
+            <span class="pillar-num">02</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M10 16h28l-2.5 22a3 3 0 01-3 2.700h-17a3 3 0 01-3-2.700z"/>
+              <path pathLength="1" d="M17 20v-5a7 7 0 0114 0v5"/>
+              <path pathLength="1" d="M19 30l3.500 3.500L29 27"/>
+            </svg>
+            <h3>Digital products</h3>
+            <p>Learn how digital products can become the foundation of your online business.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.16s" data-tilt>
+            <span class="pillar-num">03</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M6 40h9v-8h9v-8h9v-8h9"/>
+              <path pathLength="1" d="M33 8h9v9"/>
+              <circle pathLength="1" cx="12" cy="20" r="3.500"/>
+            </svg>
+            <h3>Beginner friendly</h3>
+            <p>Designed for people starting from scratch.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.24s" data-tilt>
+            <span class="pillar-num">04</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <circle pathLength="1" cx="17" cy="16" r="6"/>
+              <path pathLength="1" d="M5 39c0-7 5-12 12-12s12 5 12 12"/>
+              <circle pathLength="1" cx="34" cy="19" r="4.500"/>
+              <path pathLength="1" d="M32 28c6-.500 11 3.500 11 10"/>
+            </svg>
+            <h3>Support every step</h3>
+            <p>You do not have to figure everything out alone.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    
+    <section class="trust" id="trust">
+      <div class="trust-orb" aria-hidden="true"></div>
+      <div class="wrap">
+        <ul class="trust-list">
+          <li class="reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect pathLength="1" x="10" y="21" width="28" height="20" rx="5"/>
+              <path pathLength="1" d="M16 21v-6a8 8 0 0116 0v6"/>
+              <path pathLength="1" d="M24 29v5"/>
+            </svg>
+            <h3>Private &amp; secure</h3>
+            <p>Your information is safe and will never be shared.</p>
+          </li>
+          <li class="reveal" style="--d:.1s">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M24 5l15 6v11c0 10-6.500 17-15 21-8.500-4-15-11-15-21V11z"/>
+              <path pathLength="1" d="M17 24l5 5 9-10"/>
+            </svg>
+            <h3>Trusted by thousands</h3>
+            <p>Join thousands of people learning how to build modern online businesses.</p>
+          </li>
+          <li class="reveal" style="--d:.2s">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M24 40S7 30 7 18a9 9 0 0117-4 9 9 0 0117 4c0 12-17 22-17 22z"/>
+              <path pathLength="1" d="M15 23h5l3-5 4 9 2.500-4H34"/>
+            </svg>
+            <h3>Beginner friendly</h3>
+            <p>Step-by-step training designed for real people starting from scratch.</p>
+          </li>
+        </ul>
+
+        <div class="cta">
+          <h2 class="cta-title reveal">Ready to see how it <em>works?</em></h2>
+          <p class="cta-sub reveal" style="--d:.08s">The training is free, and you can start from anywhere.</p>
+          <a class="btn btn-light reveal" style="--d:.16s" href="#signup" data-focus-form data-magnetic>
+            <span class="btn-label">Show me the system</span>
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer" role="contentinfo">
+    <div class="wrap footer-grid">
+      <a class="logo" href="#top" aria-label="MP Move, back to top">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16"/><path d="M16 44V22l10 13 10-13v22"/><circle cx="47" cy="42" r="4"/></svg>
+        </span>
+        <span class="logo-word">MP <em>Move</em></span>
+      </a>
+      <p class="footer-note">
+        This training is educational. Building a business takes time and effort, results vary from person
+        to person, and no income is guaranteed.
+      </p>
+      <p class="footer-copy">© 2026 MP Move</p>
+    </div>
+  </div>
+
+  <a class="sticky-cta" id="sticky" href="#signup" data-focus-form>
+    <span>Get the free training</span>
+    <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+  </a>
+</div>
+<script>
+/* MP Move — interactions
+   GSAP drives the hero intro, parallax, marquee and magnetic buttons.
+   Everything degrades to a fully visible static page if GSAP is missing or motion is reduced.
+
+   The same file runs in two places:
+   - on its own (index.html), where the form only shows a preview success state;
+   - pasted into a systeme.io page (see build.py), where it finds the page's real opt-in form,
+     keeps it off screen, copies the visitor's answers into it and presses its button, so
+     sign-ups, emails and the thank-you page keep working exactly as they do today. */
+(() => {
+  // Optional: a URL that should receive the sign-up as a JSON POST when there is no systeme.io
+  // form on the page. Left empty, a page without a systeme.io form sends nothing.
+  const FORM_ENDPOINT = '';
+  const GSAP_SRC = [
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
+  ];
+
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const html = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  function start(restarted) {
+    const root = $('#mpm');
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '1';
+
+    // The intro only plays if the page was hidden before first paint (the tiny inline script
+    // that adds .js ran ahead of us). Otherwise the visitor has already seen the hero, so
+    // hiding it again to animate it in would just be a flicker.
+    const playIntro = html.classList.contains('js') && !reduce && !restarted;
+    html.classList.add('js');
+    if (reduce || !('IntersectionObserver' in window)) html.classList.add('static');
+    if (!playIntro) html.classList.add('no-intro');
+
+    /* ---------- Fill the window when nested inside another page's layout ---------- */
+    const fit = () => {
+      root.style.width = '';
+      root.style.marginLeft = '';
+      root.style.marginTop = '';
+      const r = root.getBoundingClientRect();
+      const top = r.top + window.scrollY;
+      if (Math.abs(r.left) < 1 && Math.abs(r.width - html.clientWidth) < 1 && top < 1) return;
+      root.style.width = `${html.clientWidth}px`;
+      root.style.marginLeft = `${-r.left}px`;
+      if (top > 0 && top < 200) root.style.marginTop = `${-top}px`;
+    };
+    fit();
+    window.addEventListener('resize', fit);
+
+    /* ---------- Scroll reveals ---------- */
+    if (!html.classList.contains('static')) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+      $$('.reveal', root).forEach((el) => io.observe(el));
+    }
+
+    /* ---------- Nav state + progress bar ---------- */
+    const nav = $('#nav', root);
+    const bar = $('.progress span', root);
+    let ticking = false;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const max = html.scrollHeight - window.innerHeight;
+      nav.classList.toggle('scrolled', y > 24);
+      bar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    onScroll();
+
+    /* ---------- Pointer effects that need no library (mouse only) ---------- */
+    if (finePointer && !reduce) {
+      const spotlight = (el, e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        el.style.setProperty('--mx', `${(x * 100).toFixed(1)}%`);
+        el.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
+        return { x, y };
+      };
+      $$('[data-tilt]', root).forEach((el) => {
+        el.addEventListener('pointermove', (e) => {
+          const { x, y } = spotlight(el, e);
+          el.style.setProperty('--ry', `${((x - .5) * 9).toFixed(2)}deg`);
+          el.style.setProperty('--rx', `${((.5 - y) * 9).toFixed(2)}deg`);
+        });
+        el.addEventListener('pointerleave', () => {
+          el.style.setProperty('--rx', '0deg');
+          el.style.setProperty('--ry', '0deg');
+        });
+      });
+      const formCard = $('.form', root);
+      formCard.addEventListener('pointermove', (e) => spotlight(formCard, e));
+    }
+
+    /* ---------- CTAs scroll to the form and focus it ---------- */
+    const signup = $('#signup', root);
+    const firstField = $('#first_name', root);
+    $$('[data-focus-form]', root).forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        signup.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        if (!firstField.closest('[hidden]')) setTimeout(() => firstField.focus({ preventScroll: true }), reduce ? 0 : 700);
+      });
+    });
+
+    /* ---------- Mobile sticky CTA: visible whenever the form is off screen ---------- */
+    const sticky = $('#sticky', root);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        sticky.classList.toggle('show', !entry.isIntersecting);
+      }, { threshold: .1 }).observe(signup);
+    }
+
+    /* ---------- The systeme.io form behind the page ---------- */
+    const findNative = () => {
+      const button = $('[data-test-id="submit-form-button"]');
+      const form = button && button.closest('form');
+      if (!form || root.contains(form) || form.contains(root)) return null;
+      return {
+        form,
+        button,
+        first_name: $('input[name="first_name"]', form),
+        email: $('input[name="email"]', form),
+        phone: $('input[type="tel"]', form),
+        consent: $('input[type="checkbox"]', form),
+      };
+    };
+
+    // Move something out of sight without removing it, so its scripts keep working.
+    const park = (el) => {
+      Object.assign(el.style, {
+        position: 'absolute', left: '-9999px', top: '0', width: '1px', height: '1px',
+        overflow: 'hidden', opacity: '0', pointerEvents: 'none',
+      });
+      el.setAttribute('aria-hidden', 'true');
+      $$('input, button, select, textarea, a', el).forEach((n) => { n.tabIndex = -1; });
+    };
+
+    // Hide the old page content around the block. Nothing is deleted: removing the block
+    // from the page brings the old design straight back.
+    const isolate = (native) => {
+      const stop = $('#app') || document.body;
+      let node = root;
+      while (node.parentElement && node.parentElement !== stop && node.parentElement !== document.body) {
+        [...node.parentElement.children].forEach((sib) => {
+          if (sib === node || /^(SCRIPT|STYLE|LINK)$/.test(sib.tagName)) return;
+          if (sib.matches('a[href*="systeme.io"]') || $('a[href*="systeme.io"]', sib)) return;
+          if (sib.contains(native.form)) park(sib);
+          else sib.style.setProperty('display', 'none', 'important');
+        });
+        node = node.parentElement;
+      }
+      if (!root.contains(native.form)) park(native.form);
+    };
+
+    let native = null;
+    const phoneField = $('#phone-field', root);
+    (function waitForNative(tries) {
+      native = findNative();
+      if (native) {
+        html.classList.add('mpm-live');
+        isolate(native);
+        phoneField.hidden = !native.phone;
+        fit();
+        window.dispatchEvent(new Event('resize'));
+        return;
+      }
+      // systeme.io builds its form after the page loads, so keep looking for a few seconds.
+      if (tries < 100) setTimeout(() => waitForNative(tries + 1), 100);
+    })(0);
+
+    // React ignores a plain `input.value = x`; it only notices the prototype setter plus an event.
+    const setNativeValue = (el, value) => {
+      if (!el) return;
+      const d = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value');
+      if (d && d.set) d.set.call(el, value); else el.value = value;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+
+    // Every piece of text in the systeme.io form, except its button label.
+    const nativeText = (n) => {
+      const seen = new Set();
+      const walker = document.createTreeWalker(n.form, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const text = walker.currentNode.textContent.trim();
+        if (text && !n.button.contains(walker.currentNode)) seen.add(text);
+      }
+      return seen;
+    };
+
+    // Hand the answers to systeme.io and wait to see what it does with them.
+    // Resolves on success; rejects with a message to show the visitor.
+    const sendThroughNative = (n, values) => new Promise((resolve, reject) => {
+      setNativeValue(n.first_name, values.first_name);
+      setNativeValue(n.email, values.email);
+      if (n.phone) setNativeValue(n.phone, values.phone);
+      if (n.consent && !n.consent.checked) n.consent.click();
+
+      setTimeout(() => {
+        // Anything systeme.io writes into its form after this point is its answer (an error).
+        const before = nativeText(n);
+        n.button.click();
+        const started = Date.now();
+        const timer = setInterval(() => {
+          // systeme.io normally sends the visitor to the next page, which ends this script.
+          // If it swaps the form for its own thank-you message instead, the button disappears.
+          if (!document.contains(n.button)) { clearInterval(timer); resolve(); return; }
+          const fresh = [...nativeText(n)].filter((text) => !before.has(text));
+          if (fresh.length) {
+            clearInterval(timer);
+            reject(new Error(fresh[0].slice(0, 160)));
+          } else if (Date.now() - started > 12000) {
+            clearInterval(timer);
+            reject(new Error('That took longer than expected. Please try again.'));
+          }
+        }, 250);
+      }, 150);
+    });
+
+    /* ---------- Form ---------- */
+    const form = $('#optin', root);
+    const fields = {
+      first_name: { el: $('#first_name', root), test: (v) => v.trim().length > 0, msg: 'Please add your first name.' },
+      email: { el: $('#email', root), test: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), msg: 'Please enter a valid email address.' },
+      phone: { el: $('#phone', root), test: (v) => phoneField.hidden || v.replace(/\D/g, '').length >= 7, msg: 'Please enter your phone number.' },
+    };
+    const consent = $('#consent', root);
+
+    const setError = (name, msg) => {
+      $(`#err-${name}`, root).textContent = msg || '';
+      const field = fields[name];
+      if (field) {
+        field.el.closest('.field').classList.toggle('invalid', Boolean(msg));
+        field.el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      }
+    };
+
+    Object.keys(fields).forEach((name) => {
+      fields[name].el.addEventListener('input', () => setError(name, ''));
+    });
+    consent.addEventListener('change', () => setError('consent', ''));
+
+    const showDone = (name, sent) => {
+      form.style.minHeight = `${form.offsetHeight}px`;
+      form.style.display = 'grid';
+      $('.form-body', root).hidden = true;
+      $('#done-title', root).textContent = `You're in, ${name}.`;
+      $('#preview-flag', root).hidden = sent;
+      $('#done', root).hidden = false;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let firstBad = null;
+      Object.entries(fields).forEach(([name, f]) => {
+        const ok = f.test(f.el.value);
+        setError(name, ok ? '' : f.msg);
+        if (!ok && !firstBad) firstBad = f.el;
+      });
+      if (!consent.checked) {
+        setError('consent', 'Please tick the box so we can email you the training.');
+        if (!firstBad) firstBad = consent;
+      }
+      if (firstBad) {
+        firstBad.focus();
+        if (window.gsap && !reduce) gsap.fromTo(form, { x: -8 }, { x: 0, duration: .6, ease: 'elastic.out(1, .35)' });
+        return;
+      }
+
+      const button = $('.btn-primary', form);
+      const label = $('.btn-label', button);
+      const values = {
+        first_name: fields.first_name.el.value.trim(),
+        email: fields.email.el.value.trim(),
+        phone: fields.phone.el.value.trim(),
+      };
+      button.classList.add('loading');
+      label.textContent = 'Sending…';
+
+      try {
+        native = findNative() || native;
+        let sent = true;
+        if (native && document.contains(native.button)) {
+          await sendThroughNative(native, values);
+        } else if (FORM_ENDPOINT) {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...values, consent: true }),
+          });
+          if (!res.ok) throw new Error('Something went wrong. Please try again in a moment.');
+        } else {
+          sent = false;
+          await new Promise((resolve) => setTimeout(resolve, 600));
+        }
+        showDone(values.first_name, sent);
+      } catch (err) {
+        console.error(err);
+        button.classList.remove('loading');
+        label.textContent = 'Show me the system';
+        setError('consent', err.message || 'Something went wrong. Please try again in a moment.');
+      }
+    });
+
+    /* ---------- Motion that needs GSAP ---------- */
+    const loadScript = (src) => new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+    const loadGsap = async () => {
+      const load = async () => {
+        if (!window.gsap) await loadScript(GSAP_SRC[0]);
+        if (!window.ScrollTrigger) await loadScript(GSAP_SRC[1]);
+      };
+      const timeout = new Promise((_, reject) => setTimeout(reject, 3500));
+      try { await Promise.race([load(), timeout]); return true; } catch (err) { return false; }
+    };
+
+    // Split the headline into masked words so each can slide up on its own.
+    const splitWords = (el) => {
+      const words = [];
+      el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+      const walk = (node) => {
+        [...node.childNodes].forEach((child) => {
+          if (child.nodeType === Node.TEXT_NODE) {
+            const frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach((part) => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.append(' '); return; }
+              const mask = document.createElement('span');
+              const inner = document.createElement('span');
+              mask.className = 'w';
+              inner.className = 'wi';
+              inner.textContent = part;
+              mask.append(inner);
+              frag.append(mask);
+              words.push(inner);
+            });
+            child.replaceWith(frag);
+          } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName.toLowerCase() !== 'svg') {
+            walk(child);
+          }
+        });
+      };
+      walk(el);
+      return words;
+    };
+
+    const motion = () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const title = $('[data-split]', root);
+      if (playIntro && title) {
+        const words = splitWords(title);
+        const hero = $$('[data-hero]', root);
+        const card = $('[data-hero-card]', root);
+        gsap.set(title, { visibility: 'visible' });
+        gsap.set(hero, { y: 22 });
+        gsap.set(card, { y: 40, scale: .97 });
+        gsap.timeline({ delay: .15, defaults: { ease: 'power4.out' } })
+          .from(words, { yPercent: 120, duration: 1.15, stagger: .05 })
+          .to($('.hl-line path', root), { strokeDashoffset: 0, duration: .9, ease: 'power2.inOut' }, '-=.55')
+          .to(hero, { opacity: 1, y: 0, duration: 1, stagger: .09 }, .5)
+          .to(card, { opacity: 1, y: 0, scale: 1, duration: 1.3 }, .35);
+      }
+
+      gsap.fromTo($('#portrait', root), { yPercent: -7 }, {
+        yPercent: 7, ease: 'none',
+        scrollTrigger: { trigger: $('.portrait', root), start: 'top bottom', end: 'bottom top', scrub: true },
+      });
+
+      const track = $('#marquee', root);
+      track.append($('.band-set', track).cloneNode(true));
+      const loop = gsap.to(track, { xPercent: -50, duration: 32, ease: 'none', repeat: -1 });
+      // Scrolling speeds the band up, then it eases back to its resting pace.
+      const settle = gsap.to(loop, { timeScale: 1, duration: 1.2, ease: 'power2.out', paused: true });
+      ScrollTrigger.create({
+        onUpdate(self) {
+          const boost = Math.min(Math.abs(self.getVelocity()) / 250, 6);
+          loop.timeScale(1 + boost);
+          settle.invalidate().restart();
+        },
+      });
+
+      if (finePointer) {
+        $$('[data-magnetic]', root).forEach((el) => {
+          const xTo = gsap.quickTo(el, 'x', { duration: .5, ease: 'power3.out' });
+          const yTo = gsap.quickTo(el, 'y', { duration: .5, ease: 'power3.out' });
+          el.addEventListener('pointermove', (e) => {
+            const r = el.getBoundingClientRect();
+            xTo((e.clientX - (r.left + r.width / 2)) * .18);
+            yTo((e.clientY - (r.top + r.height / 2)) * .3);
+          });
+          el.addEventListener('pointerleave', () => { xTo(0); yTo(0); });
+        });
+      }
+    };
+
+    if (reduce) {
+      html.classList.add('no-intro');
+    } else {
+      loadGsap().then((ok) => {
+        if (ok && window.gsap && window.ScrollTrigger) motion();
+        else html.classList.add('no-intro');
+      });
+    }
+
+    aurora($('#aurora', root));
+
+    // If the host page rebuilds our markup after load, the new copy has no listeners.
+    // Notice that and set it up again, without replaying the intro.
+    let checks = 0;
+    const watchdog = setInterval(() => {
+      const current = $('#mpm');
+      if (current && current !== root && !current.dataset.ready) { clearInterval(watchdog); start(true); }
+      else if (++checks > 15) clearInterval(watchdog);
+    }, 1000);
+  }
+
+  /* ---------- Hero background: a slow WebGL colour field ---------- */
+  function aurora(canvas) {
+    const gl = canvas && canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+    if (!gl) return;
+
+    const vert = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const frag = `
+      precision mediump float;
+      uniform vec2 r; uniform float t; uniform vec2 m;
+      float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+        return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
+      float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.+vec2(3.1,1.7);a*=.5;}return v;}
+      void main(){
+        vec2 uv=gl_FragCoord.xy/r;
+        vec2 p=uv; p.x*=r.x/r.y;
+        vec2 q=p*1.25+vec2(t*.030,-t*.022)+(m-.5)*.35;
+        float a=fbm(q+fbm(q*1.4+t*.05));
+        float b=fbm(q*1.8-vec2(t*.04,0.)+a);
+        vec3 cream=vec3(.973,.965,.949);
+        vec3 plum=vec3(.431,.306,.451);
+        vec3 blush=vec3(.914,.780,.753);
+        vec3 gold=vec3(.851,.647,.376);
+        vec3 c=cream;
+        c=mix(c,blush,smoothstep(.40,.80,a)*.70);
+        c=mix(c,plum,smoothstep(.50,.90,b)*.34);
+        c=mix(c,gold,smoothstep(.30,.60,a*b)*.30);
+        // Keep the left side, where the headline sits, calm.
+        c=mix(cream,c,.35+.65*smoothstep(.05,.95,uv.x));
+        gl_FragColor=vec4(c,1.);
+      }`;
+
+    const compile = (type, src) => {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    };
+    const vs = compile(gl.VERTEX_SHADER, vert);
+    const fs = compile(gl.FRAGMENT_SHADER, frag);
+    if (!vs || !fs) return;
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const uR = gl.getUniformLocation(prog, 'r');
+    const uT = gl.getUniformLocation(prog, 't');
+    const uM = gl.getUniformLocation(prog, 'm');
+    const mouse = { x: .5, y: .5, tx: .5, ty: .5 };
+
+    // The field is soft, so half resolution is plenty and keeps phones cool.
+    const resize = () => {
+      const scale = Math.min(window.devicePixelRatio || 1, 2) * .5;
+      canvas.width = Math.max(1, Math.round(canvas.clientWidth * scale));
+      canvas.height = Math.max(1, Math.round(canvas.clientHeight * scale));
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uR, canvas.width, canvas.height);
+    };
+    const draw = (ms) => {
+      mouse.x += (mouse.tx - mouse.x) * .04;
+      mouse.y += (mouse.ty - mouse.y) * .04;
+      gl.uniform1f(uT, ms / 1000 + 40);
+      gl.uniform2f(uM, mouse.x, mouse.y);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+
+    resize();
+    window.addEventListener('resize', () => { resize(); if (reduce) draw(0); });
+    if (reduce) { draw(0); return; }
+
+    window.addEventListener('pointermove', (e) => {
+      mouse.tx = e.clientX / window.innerWidth;
+      mouse.ty = 1 - e.clientY / window.innerHeight;
+    }, { passive: true });
+
+    let visible = true;
+    let raf = 0;
+    const frame = (ms) => { draw(ms); raf = visible ? requestAnimationFrame(frame) : 0; };
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(frame);
+    }).observe(canvas);
+    raf = requestAnimationFrame(frame);
+  }
+
+  start(false);
+})();
+</script>

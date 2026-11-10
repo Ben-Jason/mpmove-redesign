@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>MP Move — how to put the new page live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream: #F8F6F2; --paper: #fff; --ink: #1E1722; --soft: #5B5160; --plum: #6E4E73; --deep: #2A1B2E; --tint: #EFE7F0; --gold: #D9A560; --line: rgba(110, 78, 115, .18); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 17px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 96px; }
+    h1, h2, h3, p, ol, ul { margin: 0; }
+    h1 { font: 500 clamp(2.2rem, 7vw, 3.4rem)/1.05 "Playfair Display", Georgia, serif; letter-spacing: -.02em; }
+    h1 em { color: var(--plum); }
+    h2 { margin-top: 56px; font: 500 1.7rem/1.2 "Playfair Display", Georgia, serif; }
+    p { margin-top: 14px; }
+    .lede { font-size: 1.15rem; color: var(--soft); }
+    .label { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--plum); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 16px 26px; border: 0; border-radius: 999px; background: var(--deep); color: var(--cream); font: 600 16px/1 Inter, sans-serif; text-decoration: none; cursor: pointer; transition: background-color .25s, transform .25s; }
+    .btn:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn.done { background: #2F6B4F; }
+    .need { margin-top: 28px; padding: 16px 20px; border-radius: 16px; background: var(--tint); }
+    .need p { margin: 0; }
+    ol.steps { margin-top: 24px; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 16px; }
+    ol.steps > li { counter-increment: step; position: relative; padding: 24px 24px 26px 76px; background: var(--paper); border-radius: 20px; box-shadow: 0 0 0 1px var(--line); }
+    ol.steps > li::before { content: counter(step); position: absolute; left: 22px; top: 22px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--deep); color: var(--cream); font: 500 1.1rem "Playfair Display", serif; }
+    ol.steps h3 { font-size: 1.15rem; font-weight: 600; }
+    ol.steps p { margin-top: 8px; color: var(--soft); }
+    ol.steps ul { margin: 10px 0 0; padding-left: 20px; color: var(--soft); }
+    ol.steps li li { margin-top: 4px; }
+    b { color: var(--ink); font-weight: 600; }
+    .note { margin-top: 14px; padding: 12px 16px; border-left: 3px solid var(--gold); background: #FBF4E8; border-radius: 0 12px 12px 0; color: var(--ink); }
+    .plain { margin-top: 18px; padding-left: 20px; color: var(--soft); }
+    .plain li { margin-top: 10px; }
+    textarea { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .tiny { font-size: 14px; color: var(--soft); }
+    @media (max-width: 520px) { ol.steps > li { padding: 70px 20px 22px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">MP Move · for Marius</p>
+    <h1>Your new page is <em>ready.</em></h1>
+    <p class="lede">
+      This is a redesign of mpmove.com. Have a look first. If you like it, the four steps below put it
+      live in about ten minutes. Nothing changes on your site unless you follow them.
+    </p>
+    <a class="btn" href="index.html">See the new page →</a>
+
+    <h2>Putting it live</h2>
+    <p>
+      The new page goes on top of your current page inside systeme.io. It uses the sign-up form you
+      already have, so your sign-ups, your emails and your thank-you page keep working the way they do
+      now. Your link in bio stays the same.
+    </p>
+    <div class="need"><p><b>You need:</b> a computer (not your phone) and your systeme.io login.</p></div>
+
+    <ol class="steps">
+      <li>
+        <h3>Copy the code</h3>
+        <p>Press the button. The whole new page is copied, ready to paste.</p>
+        <button class="btn" id="copy" type="button">Copy the code</button>
+        <p class="tiny" id="copy-help" hidden>If nothing was copied, open the file <b>paste-into-systeme.txt</b> that came with this, select everything in it and copy that.</p>
+      </li>
+      <li>
+        <h3>Open your page in systeme.io</h3>
+        <p>
+          Log in, go to <b>Funnels</b>, open the funnel that holds your mpmove.com page, click the page
+          with the sign-up form, then click <b>Edit page</b>.
+        </p>
+      </li>
+      <li>
+        <h3>Add one block and paste</h3>
+        <ul>
+          <li>In the panel on the left, find the element called <b>Raw HTML</b>.</li>
+          <li>Drag it onto the page, right at the top, above your headline.</li>
+          <li>Click the new block, click <b>Edit code</b>, paste, and click <b>Save</b>.</li>
+          <li>Save the page with the save button at the top of the editor.</li>
+        </ul>
+        <p class="note">
+          Leave everything else on the page exactly as it is. Do not delete your old headline, pictures
+          or form. The new block covers them, and it needs your form to be there.
+        </p>
+      </li>
+      <li>
+        <h3>Test it before you tell anyone</h3>
+        <p>
+          Open mpmove.com in a private (incognito) window. The preview inside the editor does not show
+          the new block. Only the real page does.
+        </p>
+        <p>Sign up with your own name, email and phone number. Then check three things:</p>
+        <ul>
+          <li>You land on your usual thank-you page.</li>
+          <li>Your usual emails arrive.</li>
+          <li>You appear under <b>Contacts</b> in systeme.io.</li>
+        </ul>
+        <p class="note">
+          Please do not skip this. The new page has been checked on its own, but it has not been tried
+          inside your systeme.io account yet. This test is the proof that sign-ups still reach you.
+        </p>
+      </li>
+    </ol>
+
+    <h2>If you want your old page back</h2>
+    <p>
+      Open the editor again, click the Raw HTML block, delete it, and save. Your old page is back
+      exactly as it was, because nothing else was changed.
+    </p>
+
+    <h2>Worth knowing</h2>
+    <ul class="plain">
+      <li>
+        <b>Phone number.</b> The new form asks for a phone number because your current form requires
+        one. If you would rather not ask for it, delete the phone field from your old form in the
+        editor. The new page then stops asking for it by itself.
+      </li>
+      <li>
+        <b>Wording to check.</b> The consent line still names Lizelle de Kock and Digital Magnetic
+        System, and one section still says "Trusted by thousands". Both were copied from your current
+        page. The line at the very bottom about results not being guaranteed is new.
+      </li>
+      <li>
+        <b>Changes.</b> If you want different words, colours or sections, tell Ben-Jason. You will get
+        a new code to paste over the old one, in the same block.
+      </li>
+      <li>
+        <b>If the test sign-up shows an error about the phone number,</b> delete the phone field from
+        your old form as described above, save, and test again.
+      </li>
+      <li>
+        <b>If the test fails another way or something looks wrong,</b> delete the block to get your old
+        page back and send Ben-Jason a screenshot.
+      </li>
+    </ul>
+
+    <textarea id="code" readonly aria-hidden="true" tabindex="-1">&lt;!-- MP Move page. Paste this whole block into one Raw HTML element. To undo, delete the element. --&gt;
+&lt;script&gt;document.documentElement.classList.add(&#x27;js&#x27;)&lt;/script&gt;
+&lt;style&gt;@import url(&#x27;https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap&#x27;);:root{--cream: #F8F6F2;--paper: #FFFFFF;--ink: #1E1722;--ink-soft: #5B5160;--plum: #6E4E73;--plum-deep: #2A1B2E;--plum-soft: #EFE7F0;--blush: #E9C7C0;--gold: #D9A560;--line: rgba(110, 78, 115, .18);--serif: &quot;Playfair Display&quot;, Georgia, &quot;Times New Roman&quot;, serif;--sans: &quot;Inter&quot;, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;--ease: cubic-bezier(.22, 1, .36, 1);--radius: 28px;--nav-h: 76px;}*, *::before, *::after{box-sizing: border-box;}[hidden]{display: none !important;}html{overflow-x: clip;scroll-behavior: smooth;scroll-padding-top: calc(var(--nav-h) + 12px);-webkit-text-size-adjust: 100%;}body{margin: 0;background: var(--cream);color: var(--ink);font-family: var(--sans);font-size: 17px;line-height: 1.6;-webkit-font-smoothing: antialiased;overflow-x: hidden;}h1, h2, h3, p, ol, ul, figure{margin: 0;}ol, ul{padding: 0;list-style: none;}a{color: inherit;text-decoration: none;}img{display: block;max-width: 100%;}em{font-style: italic;}::selection{background: var(--plum);color: var(--cream);}:focus-visible{outline: 2px solid var(--gold);outline-offset: 3px;border-radius: 6px;}#mpm{position: relative;background: var(--cream);color: var(--ink);font-family: var(--sans);font-size: 17px;line-height: 1.6;text-align: left;}html:has(#mpm) [id^=&quot;section-&quot;]:not(:has(#mpm)):not(:has([data-test-id=&quot;submit-form-button&quot;])), html:has(#mpm) [id^=&quot;row-&quot;]:not(:has(#mpm)):not(:has([data-test-id=&quot;submit-form-button&quot;])){display: none !important;}html.mpm-live .sticky-cta{bottom: calc(60px + env(safe-area-inset-bottom));}.wrap{width: 100%;max-width: 1240px;margin-inline: auto;padding-inline: clamp(20px, 5vw, 56px);}.skip{position: fixed;left: 16px;top: -60px;z-index: 100;background: var(--plum-deep);color: var(--cream);padding: 10px 16px;border-radius: 999px;font-weight: 600;font-size: 14px;transition: top .2s var(--ease);}.skip:focus{top: 16px;}.progress{position: fixed;inset: 0 0 auto 0;height: 3px;z-index: 60;pointer-events: none;}.progress span{display: block;height: 100%;background: linear-gradient(90deg, var(--plum), var(--gold));transform-origin: 0 50%;transform: scaleX(var(--p, 0));}.nav{position: fixed;inset: 0 0 auto 0;z-index: 50;height: var(--nav-h);display: flex;align-items: center;justify-content: space-between;gap: 24px;padding-inline: clamp(20px, 5vw, 56px);transition: height .4s var(--ease), background-color .4s, box-shadow .4s, backdrop-filter .4s;}.nav.scrolled{height: 62px;background: rgba(248, 246, 242, .78);-webkit-backdrop-filter: saturate(1.4) blur(16px);backdrop-filter: saturate(1.4) blur(16px);box-shadow: 0 1px 0 var(--line);}.logo{display: inline-flex;align-items: center;gap: 10px;}.logo-mark{width: 34px;height: 34px;display: block;transition: transform .6s var(--ease);}.logo:hover .logo-mark{transform: rotate(-8deg) scale(1.06);}.logo-mark svg{width: 100%;height: 100%;display: block;}.logo-mark rect{fill: var(--plum-deep);}.logo-mark path{fill: none;stroke: var(--cream);stroke-width: 5;stroke-linecap: round;stroke-linejoin: round;}.logo-mark circle{fill: var(--gold);}.logo-word{font-family: var(--serif);font-weight: 600;font-size: 20px;letter-spacing: -.01em;}.logo-word em{color: var(--plum);}.nav-links{display: none;gap: 34px;font-size: 15px;font-weight: 500;color: var(--ink-soft);}.nav-links a{position: relative;padding-block: 6px;transition: color .3s;}.nav-links a::after{content: &quot;&quot;;position: absolute;left: 0;right: 0;bottom: 0;height: 1.5px;background: var(--plum);transform: scaleX(0);transform-origin: 100% 50%;transition: transform .45s var(--ease);}.nav-links a:hover{color: var(--ink);}.nav-links a:hover::after{transform: scaleX(1);transform-origin: 0 50%;}@media (min-width: 900px){.nav-links{display: flex;}}.btn{position: relative;overflow: hidden;isolation: isolate;display: inline-flex;align-items: center;justify-content: center;gap: 10px;border: 0;border-radius: 999px;cursor: pointer;font: 600 16px/1 var(--sans);letter-spacing: .01em;padding: 18px 28px;background: var(--plum-deep);color: var(--cream);transition: background-color .35s, box-shadow .35s, color .35s;will-change: transform;}.btn::before{content: &quot;&quot;;position: absolute;inset: 0;z-index: -1;border-radius: inherit;background: var(--plum);transform: translateY(101%);transition: transform .5s var(--ease);}.btn:hover::before, .btn:focus-visible::before{transform: translateY(0);}.btn:hover{box-shadow: 0 14px 30px -12px rgba(42, 27, 46, .55);}.btn:active{scale: .98;}.arrow{width: 18px;height: 18px;flex: none;fill: none;stroke: currentColor;stroke-width: 1.8;stroke-linecap: round;stroke-linejoin: round;transition: transform .45s var(--ease);}.btn:hover .arrow, .link:hover .arrow, .sticky-cta:hover .arrow{transform: translateX(5px);}.btn-small{padding: 12px 18px;font-size: 14px;}.btn-primary{width: 100%;padding-block: 20px;font-size: 17px;}.btn-shine{position: absolute;inset: 0;z-index: 0;pointer-events: none;background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .28) 50%, transparent 65%);transform: translateX(-120%);animation: shine 4.5s var(--ease) 2.2s infinite;}@keyframes shine{0%, 55%{transform: translateX(-120%);}85%, 100%{transform: translateX(120%);}}.btn.loading{pointer-events: none;opacity: .8;}.btn-light{background: var(--cream);color: var(--plum-deep);padding: 22px 34px;font-size: 18px;}.btn-light::before{background: var(--gold);}.link{display: inline-flex;align-items: center;gap: 10px;font-weight: 600;color: var(--plum);position: relative;padding-bottom: 6px;}.link::after{content: &quot;&quot;;position: absolute;left: 0;right: 0;bottom: 0;height: 1.5px;background: currentColor;transform-origin: 0 50%;transition: transform .5s var(--ease);}.link:hover::after{transform: scaleX(.35);}.hero{position: relative;isolation: isolate;min-height: 100svh;display: flex;align-items: center;padding: calc(var(--nav-h) + 28px) 0 72px;}.hero-canvas{position: absolute;inset: 0;z-index: -2;width: 100%;height: 100%;-webkit-mask-image: linear-gradient(#000 65%, transparent);mask-image: linear-gradient(#000 65%, transparent);}.hero-grain{position: absolute;inset: 0;z-index: -1;opacity: .07;pointer-events: none;mix-blend-mode: multiply;background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; width=&#x27;160&#x27; height=&#x27;160&#x27;%3E%3Cfilter id=&#x27;n&#x27;%3E%3CfeTurbulence type=&#x27;fractalNoise&#x27; baseFrequency=&#x27;.9&#x27; numOctaves=&#x27;2&#x27; stitchTiles=&#x27;stitch&#x27;/%3E%3C/filter%3E%3Crect width=&#x27;100%25&#x27; height=&#x27;100%25&#x27; filter=&#x27;url(%23n)&#x27;/%3E%3C/svg%3E&quot;);}.hero-grid{display: grid;gap: 44px;align-items: center;}@media (min-width: 1000px){.hero-grid{grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);gap: clamp(40px, 6vw, 88px);}}.eyebrow{display: inline-flex;align-items: center;gap: 10px;padding: 8px 16px 8px 12px;border-radius: 999px;background: rgba(255, 255, 255, .7);border: 1px solid var(--line);font-size: 13px;font-weight: 600;letter-spacing: .08em;text-transform: uppercase;color: var(--plum);-webkit-backdrop-filter: blur(8px);backdrop-filter: blur(8px);}.pulse{position: relative;width: 8px;height: 8px;border-radius: 50%;background: var(--gold);flex: none;}.pulse::after{content: &quot;&quot;;position: absolute;inset: 0;border-radius: 50%;background: var(--gold);animation: pulse 2.2s ease-out infinite;}@keyframes pulse{to{transform: scale(3.4);opacity: 0;}}.hero-title{margin-top: 26px;font-family: var(--serif);font-weight: 500;font-size: clamp(2.55rem, 5.6vw, 5rem);line-height: 1.04;letter-spacing: -.025em;text-wrap: balance;}.hl{position: relative;display: inline-block;white-space: nowrap;font-style: italic;color: var(--plum);}.hl-line{position: absolute;z-index: -1;left: -2%;bottom: -.17em;width: 104%;height: .26em;overflow: visible;pointer-events: none;}.hl-line path{fill: none;stroke: var(--gold);stroke-width: 3.5;stroke-linecap: round;stroke-dasharray: 1;stroke-dashoffset: 0;}.w{display: inline-block;overflow: hidden;vertical-align: top;padding: 0 .06em .14em;margin: 0 -.06em -.14em;}.wi{display: inline-block;will-change: transform;}.hero-kicker{margin-top: 30px;display: flex;flex-wrap: wrap;gap: 8px 10px;font-weight: 600;font-size: 15px;color: var(--plum-deep);}.hero-kicker span{padding: 7px 14px;border-radius: 999px;background: var(--plum-soft);border: 1px solid transparent;transition: background-color .3s, border-color .3s, translate .4s var(--ease);}.hero-kicker span:hover{background: var(--paper);border-color: var(--line);translate: 0 -2px;}.hero-lede{margin-top: 22px;max-width: 52ch;font-size: clamp(1.05rem, 1.3vw, 1.2rem);color: var(--ink-soft);}.scroll-cue{margin-top: 40px;display: none;align-items: center;gap: 14px;font-size: 14px;font-weight: 600;letter-spacing: .06em;text-transform: uppercase;color: var(--plum);}.scroll-cue-line{position: relative;width: 56px;height: 1.5px;background: var(--line);overflow: hidden;}.scroll-cue-line::after{content: &quot;&quot;;position: absolute;inset: 0;background: var(--plum);animation: cue 2.4s var(--ease) infinite;}@keyframes cue{0%{transform: translateX(-100%);}60%, 100%{transform: translateX(100%);}}@media (min-width: 1000px){.scroll-cue{display: inline-flex;}}.hero-form{position: relative;width: 100%;max-width: 480px;justify-self: center;}@media (min-width: 1000px){.hero-form{justify-self: end;}}.card-glow{position: absolute;inset: -14% -12%;z-index: -1;border-radius: 50%;background: radial-gradient(45% 45% at 30% 30%, rgba(110, 78, 115, .38), transparent 70%), radial-gradient(40% 40% at 72% 70%, rgba(217, 165, 96, .38), transparent 70%);filter: blur(46px);animation: drift 12s ease-in-out infinite alternate;}@keyframes drift{to{transform: translate(3%, -4%) rotate(14deg) scale(1.06);}}.form{position: relative;overflow: hidden;background: rgba(255, 255, 255, .86);-webkit-backdrop-filter: blur(18px) saturate(1.3);backdrop-filter: blur(18px) saturate(1.3);border: 1px solid rgba(255, 255, 255, .9);border-radius: var(--radius);padding: clamp(24px, 3.4vw, 38px);box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 40px 80px -40px rgba(42, 27, 46, .45), 0 0 0 1px var(--line);}.form::before{content: &quot;&quot;;position: absolute;inset: 0;pointer-events: none;border-radius: inherit;background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(110, 78, 115, .09), transparent 60%);}.form-body, .form-done{position: relative;}.form-tag{font-size: 12px;font-weight: 600;letter-spacing: .14em;text-transform: uppercase;color: var(--plum);}.form-title{margin-top: 8px;font-family: var(--serif);font-weight: 500;font-size: clamp(1.6rem, 2.3vw, 2rem);line-height: 1.15;letter-spacing: -.015em;}.form-sub{margin-top: 8px;font-size: 15px;color: var(--ink-soft);}.field{position: relative;margin-top: 20px;}.field input{width: 100%;height: 60px;padding: 22px 16px 6px;border: 1px solid var(--line);border-radius: 14px;background: var(--paper);color: var(--ink);font: 500 16px var(--sans);transition: border-color .3s, box-shadow .3s, background-color .3s;appearance: none;}.field input:hover{border-color: rgba(110, 78, 115, .4);}.field input:focus{outline: 0;border-color: var(--plum);box-shadow: 0 0 0 4px rgba(110, 78, 115, .14);}.field label{position: absolute;left: 17px;top: 19px;pointer-events: none;color: var(--ink-soft);font-size: 16px;transform-origin: 0 0;transition: transform .3s var(--ease), color .3s;}.field input:focus + label, .field input:not(:placeholder-shown) + label{transform: translateY(-11px) scale(.74);color: var(--plum);}.field-line{position: absolute;left: 14px;right: 14px;top: 59px;height: 2px;border-radius: 2px;background: var(--gold);transform: scaleX(0);transform-origin: 0 50%;transition: transform .5s var(--ease);}.field input:focus ~ .field-line{transform: scaleX(1);}.field.invalid input{border-color: #B4423C;box-shadow: 0 0 0 4px rgba(180, 66, 60, .12);}.field-error{min-height: 0;font-size: 13px;font-weight: 500;color: #B4423C;}.field-error:not(:empty){margin-top: 6px;}.consent{margin-top: 18px;display: grid;grid-template-columns: 22px 1fr;gap: 12px;align-items: start;cursor: pointer;font-size: 13px;line-height: 1.5;color: var(--ink-soft);}.consent input{position: absolute;opacity: 0;width: 22px;height: 22px;margin: 0;cursor: pointer;}.check{width: 22px;height: 22px;border-radius: 7px;border: 1.5px solid rgba(110, 78, 115, .45);background: var(--paper);display: grid;place-items: center;transition: background-color .25s, border-color .25s, scale .25s var(--ease);}.check svg{width: 14px;height: 14px;fill: none;stroke: var(--cream);stroke-width: 2.2;stroke-linecap: round;stroke-linejoin: round;}.check path{stroke-dasharray: 1;stroke-dashoffset: 1;transition: stroke-dashoffset .35s var(--ease) .05s;}.consent:hover .check{border-color: var(--plum);}.consent input:checked + .check{background: var(--plum);border-color: var(--plum);scale: 1.06;}.consent input:checked + .check path{stroke-dashoffset: 0;}.consent input:focus-visible + .check{outline: 2px solid var(--gold);outline-offset: 3px;}.form .btn-primary{margin-top: 20px;}.form-note{margin-top: 14px;display: flex;gap: 8px;align-items: flex-start;justify-content: center;font-size: 12.5px;color: var(--ink-soft);text-align: left;}.form-note svg{width: 15px;height: 15px;flex: none;margin-top: 2px;fill: none;stroke: var(--plum);stroke-width: 1.4;stroke-linecap: round;}.form-done{display: grid;justify-items: center;align-content: center;text-align: center;gap: 4px;padding-block: 24px;}.done-tick{width: 76px;height: 76px;margin-bottom: 14px;fill: none;stroke: var(--plum);stroke-width: 3;stroke-linecap: round;stroke-linejoin: round;}.done-tick circle, .done-tick path{stroke-dasharray: 1;stroke-dashoffset: 1;animation: draw .9s var(--ease) .1s forwards;}.done-tick path{stroke: var(--gold);stroke-width: 4;animation-delay: .6s;animation-duration: .5s;}@keyframes draw{to{stroke-dashoffset: 0;}}.preview-flag{margin-top: 18px;padding: 8px 14px;border-radius: 10px;background: var(--plum-soft);font-size: 12.5px;color: var(--plum-deep);}.band{background: var(--plum-deep);color: var(--cream);overflow: hidden;padding-block: clamp(18px, 2.6vw, 30px);}.band-track{display: flex;width: max-content;will-change: transform;}.band-set{display: flex;align-items: center;flex: none;}.band-set span{font-family: var(--serif);font-size: clamp(1.4rem, 3vw, 2.4rem);letter-spacing: -.01em;white-space: nowrap;padding-inline: clamp(18px, 2.6vw, 38px);}.band-set em{color: var(--gold);}.band-set i{width: 10px;height: 10px;flex: none;background: var(--gold);rotate: 45deg;border-radius: 2px;}.section-label{display: inline-flex;align-items: center;gap: 12px;font-size: 13px;font-weight: 600;letter-spacing: .14em;text-transform: uppercase;color: var(--plum);}.section-label::before{content: &quot;&quot;;width: 28px;height: 1.5px;background: var(--gold);}.section-title{margin-top: 16px;font-family: var(--serif);font-weight: 500;font-size: clamp(2.3rem, 5vw, 4.2rem);line-height: 1.05;letter-spacing: -.025em;}.section-title em{color: var(--plum);}.about{padding-block: clamp(80px, 11vw, 160px);}.about-grid{display: grid;gap: clamp(48px, 7vw, 104px);align-items: center;}@media (min-width: 900px){.about-grid{grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);}}.portrait{position: relative;max-width: 460px;width: calc(100% - 20px);margin-inline: auto;}.portrait-frame{position: absolute;inset: 0;border: 1.5px solid var(--plum);border-radius: var(--radius);translate: 18px 18px;transition: translate .7s var(--ease);}.portrait:hover .portrait-frame{translate: 10px 10px;}.portrait-img{position: relative;aspect-ratio: 1;overflow: hidden;border-radius: var(--radius);background: var(--plum-soft);box-shadow: 0 40px 70px -40px rgba(42, 27, 46, .5);}.portrait-img img{width: 100%;height: 100%;object-fit: cover;scale: 1.16;will-change: transform;}.portrait-tag{position: absolute;left: -10px;bottom: 26px;display: inline-flex;align-items: center;gap: 10px;padding: 10px 16px;border-radius: 999px;background: var(--paper);box-shadow: 0 14px 30px -14px rgba(42, 27, 46, .45), 0 0 0 1px var(--line);font-size: 13.5px;font-weight: 600;}.about-big{margin-top: 28px;font-family: var(--serif);font-size: clamp(1.45rem, 2.5vw, 2.1rem);line-height: 1.3;letter-spacing: -.01em;max-width: 24ch;}.about-body{margin-top: 20px;max-width: 50ch;color: var(--ink-soft);font-size: 1.08rem;}.about-copy .link{margin-top: 30px;}.inside{padding-bottom: clamp(80px, 11vw, 160px);}.section-head{max-width: 760px;}.pillars{margin-top: clamp(36px, 5vw, 64px);display: grid;gap: 18px;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));}.pillar{position: relative;overflow: hidden;padding: 28px 26px 30px;min-height: 280px;display: flex;flex-direction: column;background: var(--paper);border-radius: 24px;box-shadow: 0 0 0 1px var(--line);transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));transition: transform .4s ease-out, box-shadow .4s, background-color .4s;}.pillar::before{content: &quot;&quot;;position: absolute;inset: 0;opacity: 0;transition: opacity .4s;background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(110, 78, 115, .16), transparent 62%);}.pillar:hover{box-shadow: 0 0 0 1px rgba(110, 78, 115, .4), 0 34px 60px -34px rgba(42, 27, 46, .5);}.pillar:hover::before{opacity: 1;}.pillar &gt; *{position: relative;}.pillar-num{position: absolute;right: 24px;top: 20px;font-family: var(--serif);font-style: italic;font-size: 1.05rem;color: rgba(110, 78, 115, .55);}.pillar .icon{width: 62px;height: 62px;padding: 13px;border-radius: 18px;background: var(--plum-soft);color: var(--plum);transition: background-color .4s, color .4s, rotate .6s var(--ease);}.pillar:hover .icon{background: var(--plum-deep);color: var(--cream);rotate: -6deg;}.pillar h3{margin-top: auto;padding-top: 44px;font-family: var(--serif);font-weight: 500;font-size: 1.5rem;line-height: 1.2;letter-spacing: -.01em;}.pillar p{margin-top: 10px;font-size: .98rem;color: var(--ink-soft);}.icon{fill: none;stroke: currentColor;stroke-width: 2;stroke-linecap: round;stroke-linejoin: round;}.trust{position: relative;overflow: hidden;isolation: isolate;background: var(--plum-deep);color: var(--cream);border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;padding-block: clamp(72px, 9vw, 130px) clamp(80px, 10vw, 150px);}.trust-orb{position: absolute;z-index: -1;left: 50%;bottom: -46%;width: min(1100px, 130vw);aspect-ratio: 1;translate: -50% 0;border-radius: 50%;background: radial-gradient(closest-side, rgba(110, 78, 115, .9), rgba(217, 165, 96, .16) 62%, transparent 72%);filter: blur(30px);animation: breathe 9s ease-in-out infinite alternate;}@keyframes breathe{to{transform: scale(1.12);opacity: .75;}}.trust-list{display: grid;gap: 0;}.trust-list li{padding: 30px 0;border-top: 1px solid rgba(248, 246, 242, .14);}.trust-list li:last-child{border-bottom: 1px solid rgba(248, 246, 242, .14);}@media (min-width: 860px){.trust-list{grid-template-columns: repeat(3, 1fr);border-block: 1px solid rgba(248, 246, 242, .14);}.trust-list li, .trust-list li:last-child{border: 0;padding: 40px clamp(20px, 3vw, 44px);}.trust-list li + li{border-left: 1px solid rgba(248, 246, 242, .14);}.trust-list li:first-child{padding-left: 0;}}.trust-list .icon{width: 44px;height: 44px;color: var(--gold);}.trust-list h3{margin-top: 18px;font-family: var(--serif);font-weight: 500;font-size: 1.45rem;letter-spacing: -.01em;}.trust-list p{margin-top: 8px;color: rgba(248, 246, 242, .72);font-size: .98rem;max-width: 34ch;}.cta{margin-top: clamp(72px, 10vw, 140px);text-align: center;display: grid;justify-items: center;}.cta-title{font-family: var(--serif);font-weight: 500;font-size: clamp(2.6rem, 7vw, 6rem);line-height: 1;letter-spacing: -.03em;max-width: 14ch;text-wrap: balance;}.cta-title em{color: var(--gold);}.cta-sub{margin-top: 22px;font-size: 1.15rem;color: rgba(248, 246, 242, .75);}.cta .btn{margin-top: 38px;}.footer{background: var(--plum-deep);color: rgba(248, 246, 242, .7);padding-block: 34px calc(34px + env(safe-area-inset-bottom));border-top: 1px solid rgba(248, 246, 242, .14);font-size: 13.5px;}.footer-grid{display: grid;gap: 18px;align-items: center;}@media (min-width: 860px){.footer-grid{grid-template-columns: auto 1fr auto;gap: 44px;}}.footer .logo-word{color: var(--cream);}.footer .logo-word em{color: var(--gold);}.footer .logo-mark rect{fill: var(--cream);}.footer .logo-mark path{stroke: var(--plum-deep);}.footer-note{max-width: 70ch;}@media (max-width: 859px){.footer{padding-bottom: calc(96px + env(safe-area-inset-bottom));}}.sticky-cta{position: fixed;z-index: 55;left: 16px;right: 16px;bottom: calc(14px + env(safe-area-inset-bottom));display: flex;align-items: center;justify-content: center;gap: 10px;padding: 17px 22px;border-radius: 999px;background: var(--plum);color: var(--cream);font-weight: 600;box-shadow: 0 18px 36px -14px rgba(42, 27, 46, .7);translate: 0 140%;transition: translate .55s var(--ease);}.sticky-cta.show{translate: 0 0;}@media (min-width: 860px){.sticky-cta{display: none;}}html.js .reveal{opacity: 0;translate: 0 30px;transition: opacity .9s var(--ease) var(--d, 0s), translate .9s var(--ease) var(--d, 0s);}html.js .reveal.in{opacity: 1;translate: 0 0;}html.js .reveal .icon *{stroke-dasharray: 1;stroke-dashoffset: 1;}html.js .reveal.in .icon *{animation: draw 1.3s var(--ease) calc(var(--d, 0s) + .25s) forwards;}html.js .hero-title{visibility: hidden;}html.js [data-hero], html.js [data-hero-card]{opacity: 0;}html.js .hl-line path{stroke-dashoffset: 1;}html.static .hero-title, html.no-intro .hero-title{visibility: visible;}html.static [data-hero], html.static [data-hero-card], html.no-intro [data-hero], html.no-intro [data-hero-card]{opacity: 1;}html.static .hl-line path, html.no-intro .hl-line path{stroke-dashoffset: 0;}html.static .reveal{opacity: 1;translate: 0 0;transition: none;}html.static .reveal .icon *{stroke-dashoffset: 0;animation: none;}@media (prefers-reduced-motion: reduce){html{scroll-behavior: auto;}*, *::before, *::after{animation: none !important;transition-duration: .01ms !important;}.done-tick circle, .done-tick path, html.js .reveal .icon *{stroke-dashoffset: 0;}}&lt;/style&gt;
+&lt;div id=&quot;mpm&quot;&gt;
+  &lt;a class=&quot;skip&quot; href=&quot;#signup&quot;&gt;Skip to the sign-up form&lt;/a&gt;
+  &lt;div class=&quot;progress&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;nav&quot; id=&quot;nav&quot; role=&quot;banner&quot;&gt;
+    &lt;a class=&quot;logo&quot; href=&quot;#top&quot; aria-label=&quot;MP Move, back to top&quot;&gt;
+      &lt;span class=&quot;logo-mark&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;svg viewBox=&quot;0 0 64 64&quot;&gt;&lt;rect width=&quot;64&quot; height=&quot;64&quot; rx=&quot;16&quot;/&gt;&lt;path d=&quot;M16 44V22l10 13 10-13v22&quot;/&gt;&lt;circle cx=&quot;47&quot; cy=&quot;42&quot; r=&quot;4&quot;/&gt;&lt;/svg&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;logo-word&quot;&gt;MP &lt;em&gt;Move&lt;/em&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;nav class=&quot;nav-links&quot; aria-label=&quot;Page sections&quot;&gt;
+      &lt;a href=&quot;#about&quot;&gt;About Marius&lt;/a&gt;
+      &lt;a href=&quot;#inside&quot;&gt;What&#x27;s inside&lt;/a&gt;
+      &lt;a href=&quot;#trust&quot;&gt;Why join&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;a class=&quot;btn btn-small&quot; href=&quot;#signup&quot; data-focus-form&gt;
+      &lt;span&gt;Free training&lt;/span&gt;
+      &lt;svg class=&quot;arrow&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 10h12M11 5l5 5-5 5&quot;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;main id=&quot;top&quot;&gt;
+    
+    &lt;section class=&quot;hero&quot;&gt;
+      &lt;canvas class=&quot;hero-canvas&quot; id=&quot;aurora&quot; aria-hidden=&quot;true&quot;&gt;&lt;/canvas&gt;
+      &lt;div class=&quot;hero-grain&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+
+      &lt;div class=&quot;wrap hero-grid&quot;&gt;
+        &lt;div class=&quot;hero-copy&quot;&gt;
+          &lt;p class=&quot;eyebrow&quot; data-hero&gt;
+            &lt;span class=&quot;pulse&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            100% free beginner training
+          &lt;/p&gt;
+
+          &lt;h1 class=&quot;hero-title&quot; data-split&gt;
+            Learn how
+            &lt;span class=&quot;hl&quot;&gt;everyday people&lt;svg class=&quot;hl-line&quot; viewBox=&quot;0 0 300 18&quot; preserveAspectRatio=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;&lt;path pathLength=&quot;1&quot; d=&quot;M3 12C52 4 98 3 150 8s98 6 147-3&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;
+            are building online businesses in 2026
+          &lt;/h1&gt;
+
+          &lt;p class=&quot;hero-kicker&quot; data-hero&gt;
+            &lt;span&gt;No experience.&lt;/span&gt;
+            &lt;span&gt;No huge following.&lt;/span&gt;
+            &lt;span&gt;No complicated tech.&lt;/span&gt;
+          &lt;/p&gt;
+
+          &lt;p class=&quot;hero-lede&quot; data-hero&gt;
+            Learn the beginner-friendly system helping everyday people start an online business,
+            without needing a huge audience, creating products from scratch, or figuring everything out alone.
+          &lt;/p&gt;
+
+          &lt;a class=&quot;scroll-cue&quot; href=&quot;#about&quot; data-hero&gt;
+            &lt;span class=&quot;scroll-cue-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            Meet Marius
+          &lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;hero-form&quot; id=&quot;signup&quot; data-hero-card&gt;
+          &lt;div class=&quot;card-glow&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+          &lt;form class=&quot;form&quot; id=&quot;optin&quot; novalidate&gt;
+            &lt;div class=&quot;form-body&quot;&gt;
+              &lt;p class=&quot;form-tag&quot;&gt;Free training&lt;/p&gt;
+              &lt;h2 class=&quot;form-title&quot;&gt;See the system for yourself&lt;/h2&gt;
+              &lt;p class=&quot;form-sub&quot;&gt;Tell me where to send it and you&#x27;ll get instant access.&lt;/p&gt;
+
+              &lt;div class=&quot;field&quot;&gt;
+                &lt;input id=&quot;first_name&quot; name=&quot;first_name&quot; type=&quot;text&quot; autocomplete=&quot;given-name&quot; placeholder=&quot; &quot; required&gt;
+                &lt;label for=&quot;first_name&quot;&gt;First name&lt;/label&gt;
+                &lt;span class=&quot;field-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;p class=&quot;field-error&quot; id=&quot;err-first_name&quot; role=&quot;alert&quot;&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;field&quot;&gt;
+                &lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; inputmode=&quot;email&quot; placeholder=&quot; &quot; required&gt;
+                &lt;label for=&quot;email&quot;&gt;Email address&lt;/label&gt;
+                &lt;span class=&quot;field-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;p class=&quot;field-error&quot; id=&quot;err-email&quot; role=&quot;alert&quot;&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+              
+              &lt;div class=&quot;field&quot; id=&quot;phone-field&quot; hidden&gt;
+                &lt;input id=&quot;phone&quot; name=&quot;phone&quot; type=&quot;tel&quot; autocomplete=&quot;tel&quot; inputmode=&quot;tel&quot; placeholder=&quot; &quot;&gt;
+                &lt;label for=&quot;phone&quot;&gt;Phone number&lt;/label&gt;
+                &lt;span class=&quot;field-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;p class=&quot;field-error&quot; id=&quot;err-phone&quot; role=&quot;alert&quot;&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;label class=&quot;consent&quot; for=&quot;consent&quot;&gt;
+                &lt;input id=&quot;consent&quot; name=&quot;consent&quot; type=&quot;checkbox&quot; required&gt;
+                &lt;span class=&quot;check&quot; aria-hidden=&quot;true&quot;&gt;
+                  &lt;svg viewBox=&quot;0 0 16 16&quot;&gt;&lt;path pathLength=&quot;1&quot; d=&quot;M3.5 8.5l3 3 6-7&quot;/&gt;&lt;/svg&gt;
+                &lt;/span&gt;
+                &lt;span class=&quot;consent-text&quot;&gt;
+                  I agree to receive emails, resources, and promotional messages from Lizelle de Kock and
+                  Digital Magnetic System. I can unsubscribe at any time.
+                &lt;/span&gt;
+              &lt;/label&gt;
+              &lt;p class=&quot;field-error&quot; id=&quot;err-consent&quot; role=&quot;alert&quot;&gt;&lt;/p&gt;
+
+              &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot; data-magnetic&gt;
+                &lt;span class=&quot;btn-label&quot;&gt;Show me the system&lt;/span&gt;
+                &lt;svg class=&quot;arrow&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 10h12M11 5l5 5-5 5&quot;/&gt;&lt;/svg&gt;
+                &lt;span class=&quot;btn-shine&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+              &lt;/button&gt;
+
+              &lt;p class=&quot;form-note&quot;&gt;
+                &lt;svg viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;7&quot; width=&quot;10&quot; height=&quot;7&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M5.5 7V5a2.5 2.5 0 015 0v2&quot;/&gt;&lt;/svg&gt;
+                We respect your privacy. Your information is safe and will never be shared.
+              &lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-done&quot; id=&quot;done&quot; hidden aria-live=&quot;polite&quot;&gt;
+              &lt;svg class=&quot;done-tick&quot; viewBox=&quot;0 0 64 64&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;circle pathLength=&quot;1&quot; cx=&quot;32&quot; cy=&quot;32&quot; r=&quot;28&quot;/&gt;
+                &lt;path pathLength=&quot;1&quot; d=&quot;M20 33l8 8 16-18&quot;/&gt;
+              &lt;/svg&gt;
+              &lt;h2 class=&quot;form-title&quot; id=&quot;done-title&quot;&gt;You&#x27;re in.&lt;/h2&gt;
+              &lt;p class=&quot;form-sub&quot;&gt;Check your inbox. The training is on its way.&lt;/p&gt;
+              &lt;p class=&quot;preview-flag&quot; id=&quot;preview-flag&quot; hidden&gt;Preview mode: the form is not connected yet, so nothing was sent.&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    
+    &lt;section class=&quot;band&quot; aria-label=&quot;Free training. No experience needed. Start from anywhere.&quot;&gt;
+      &lt;div class=&quot;band-track&quot; id=&quot;marquee&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;div class=&quot;band-set&quot;&gt;
+          &lt;span&gt;100% free training&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+          &lt;span&gt;&lt;em&gt;No experience&lt;/em&gt; needed&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+          &lt;span&gt;Start from anywhere&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+          &lt;span&gt;100% free training&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+          &lt;span&gt;&lt;em&gt;No experience&lt;/em&gt; needed&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+          &lt;span&gt;Start from anywhere&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    
+    &lt;section class=&quot;about&quot; id=&quot;about&quot;&gt;
+      &lt;div class=&quot;wrap about-grid&quot;&gt;
+        &lt;figure class=&quot;portrait reveal&quot;&gt;
+          &lt;div class=&quot;portrait-frame&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;portrait-img&quot;&gt;
+            &lt;img id=&quot;portrait&quot; src=&quot;https://d1yei2z3i6k35z.cloudfront.net/19617979/6aeaf56224b564.09677293_image_2026-11-04_110538305.png&quot; alt=&quot;Marius standing outdoors on a lawn&quot; loading=&quot;lazy&quot; width=&quot;640&quot; height=&quot;640&quot;&gt;
+          &lt;/div&gt;
+          &lt;figcaption class=&quot;portrait-tag&quot;&gt;
+            &lt;span class=&quot;pulse&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Marius, founder of MP Move
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+
+        &lt;div class=&quot;about-copy&quot;&gt;
+          &lt;p class=&quot;section-label reveal&quot;&gt;Your guide&lt;/p&gt;
+          &lt;h2 class=&quot;section-title reveal&quot; style=&quot;--d:.05s&quot;&gt;Hi, I&#x27;m &lt;em&gt;Marius.&lt;/em&gt;&lt;/h2&gt;
+          &lt;p class=&quot;about-big reveal&quot; style=&quot;--d:.1s&quot;&gt;
+            I&#x27;m in my mid 20s, three years into the corporate world, but entrepreneurship has always been my dream.
+          &lt;/p&gt;
+          &lt;p class=&quot;about-body reveal&quot; style=&quot;--d:.15s&quot;&gt;
+            If you&#x27;re ready to explore new opportunities, build a business of your own, and work toward
+            greater financial freedom, let&#x27;s get started.
+          &lt;/p&gt;
+          &lt;a class=&quot;link reveal&quot; style=&quot;--d:.2s&quot; href=&quot;#signup&quot; data-focus-form&gt;
+            Get the free training
+            &lt;svg class=&quot;arrow&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 10h12M11 5l5 5-5 5&quot;/&gt;&lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    
+    &lt;section class=&quot;inside&quot; id=&quot;inside&quot;&gt;
+      &lt;div class=&quot;wrap&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;
+          &lt;p class=&quot;section-label reveal&quot;&gt;What&#x27;s inside&lt;/p&gt;
+          &lt;h2 class=&quot;section-title reveal&quot; style=&quot;--d:.05s&quot;&gt;A simpler way to &lt;em&gt;start.&lt;/em&gt;&lt;/h2&gt;
+        &lt;/div&gt;
+
+        &lt;ol class=&quot;pillars&quot;&gt;
+          &lt;li class=&quot;pillar reveal&quot; data-tilt&gt;
+            &lt;span class=&quot;pillar-num&quot;&gt;01&lt;/span&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;rect pathLength=&quot;1&quot; x=&quot;6&quot; y=&quot;9&quot; width=&quot;36&quot; height=&quot;24&quot; rx=&quot;4&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M18 41h12M24 33v8&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M14 25l6-6 5 4 9-8&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Simple strategies&lt;/h3&gt;
+            &lt;p&gt;No complicated tech or confusing business models.&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;pillar reveal&quot; style=&quot;--d:.08s&quot; data-tilt&gt;
+            &lt;span class=&quot;pillar-num&quot;&gt;02&lt;/span&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M10 16h28l-2.5 22a3 3 0 01-3 2.700h-17a3 3 0 01-3-2.700z&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M17 20v-5a7 7 0 0114 0v5&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M19 30l3.500 3.500L29 27&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Digital products&lt;/h3&gt;
+            &lt;p&gt;Learn how digital products can become the foundation of your online business.&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;pillar reveal&quot; style=&quot;--d:.16s&quot; data-tilt&gt;
+            &lt;span class=&quot;pillar-num&quot;&gt;03&lt;/span&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M6 40h9v-8h9v-8h9v-8h9&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M33 8h9v9&quot;/&gt;
+              &lt;circle pathLength=&quot;1&quot; cx=&quot;12&quot; cy=&quot;20&quot; r=&quot;3.500&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Beginner friendly&lt;/h3&gt;
+            &lt;p&gt;Designed for people starting from scratch.&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;pillar reveal&quot; style=&quot;--d:.24s&quot; data-tilt&gt;
+            &lt;span class=&quot;pillar-num&quot;&gt;04&lt;/span&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;circle pathLength=&quot;1&quot; cx=&quot;17&quot; cy=&quot;16&quot; r=&quot;6&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M5 39c0-7 5-12 12-12s12 5 12 12&quot;/&gt;
+              &lt;circle pathLength=&quot;1&quot; cx=&quot;34&quot; cy=&quot;19&quot; r=&quot;4.500&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M32 28c6-.500 11 3.500 11 10&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Support every step&lt;/h3&gt;
+            &lt;p&gt;You do not have to figure everything out alone.&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    
+    &lt;section class=&quot;trust&quot; id=&quot;trust&quot;&gt;
+      &lt;div class=&quot;trust-orb&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;wrap&quot;&gt;
+        &lt;ul class=&quot;trust-list&quot;&gt;
+          &lt;li class=&quot;reveal&quot;&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;rect pathLength=&quot;1&quot; x=&quot;10&quot; y=&quot;21&quot; width=&quot;28&quot; height=&quot;20&quot; rx=&quot;5&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M16 21v-6a8 8 0 0116 0v6&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M24 29v5&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Private &amp;amp; secure&lt;/h3&gt;
+            &lt;p&gt;Your information is safe and will never be shared.&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;reveal&quot; style=&quot;--d:.1s&quot;&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M24 5l15 6v11c0 10-6.500 17-15 21-8.500-4-15-11-15-21V11z&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M17 24l5 5 9-10&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Trusted by thousands&lt;/h3&gt;
+            &lt;p&gt;Join thousands of people learning how to build modern online businesses.&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;reveal&quot; style=&quot;--d:.2s&quot;&gt;
+            &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M24 40S7 30 7 18a9 9 0 0117-4 9 9 0 0117 4c0 12-17 22-17 22z&quot;/&gt;
+              &lt;path pathLength=&quot;1&quot; d=&quot;M15 23h5l3-5 4 9 2.500-4H34&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;h3&gt;Beginner friendly&lt;/h3&gt;
+            &lt;p&gt;Step-by-step training designed for real people starting from scratch.&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;div class=&quot;cta&quot;&gt;
+          &lt;h2 class=&quot;cta-title reveal&quot;&gt;Ready to see how it &lt;em&gt;works?&lt;/em&gt;&lt;/h2&gt;
+          &lt;p class=&quot;cta-sub reveal&quot; style=&quot;--d:.08s&quot;&gt;The training is free, and you can start from anywhere.&lt;/p&gt;
+          &lt;a class=&quot;btn btn-light reveal&quot; style=&quot;--d:.16s&quot; href=&quot;#signup&quot; data-focus-form data-magnetic&gt;
+            &lt;span class=&quot;btn-label&quot;&gt;Show me the system&lt;/span&gt;
+            &lt;svg class=&quot;arrow&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 10h12M11 5l5 5-5 5&quot;/&gt;&lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;div class=&quot;footer&quot; role=&quot;contentinfo&quot;&gt;
+    &lt;div class=&quot;wrap footer-grid&quot;&gt;
+      &lt;a class=&quot;logo&quot; href=&quot;#top&quot; aria-label=&quot;MP Move, back to top&quot;&gt;
+        &lt;span class=&quot;logo-mark&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 64 64&quot;&gt;&lt;rect width=&quot;64&quot; height=&quot;64&quot; rx=&quot;16&quot;/&gt;&lt;path d=&quot;M16 44V22l10 13 10-13v22&quot;/&gt;&lt;circle cx=&quot;47&quot; cy=&quot;42&quot; r=&quot;4&quot;/&gt;&lt;/svg&gt;
+        &lt;/span&gt;
+        &lt;span class=&quot;logo-word&quot;&gt;MP &lt;em&gt;Move&lt;/em&gt;&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;p class=&quot;footer-note&quot;&gt;
+        This training is educational. Building a business takes time and effort, results vary from person
+        to person, and no income is guaranteed.
+      &lt;/p&gt;
+      &lt;p class=&quot;footer-copy&quot;&gt;© 2026 MP Move&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;a class=&quot;sticky-cta&quot; id=&quot;sticky&quot; href=&quot;#signup&quot; data-focus-form&gt;
+    &lt;span&gt;Get the free training&lt;/span&gt;
+    &lt;svg class=&quot;arrow&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 10h12M11 5l5 5-5 5&quot;/&gt;&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;script&gt;
+/* MP Move — interactions
+   GSAP drives the hero intro, parallax, marquee and magnetic buttons.
+   Everything degrades to a fully visible static page if GSAP is missing or motion is reduced.
+
+   The same file runs in two places:
+   - on its own (index.html), where the form only shows a preview success state;
+   - pasted into a systeme.io page (see build.py), where it finds the page&#x27;s real opt-in form,
+     keeps it off screen, copies the visitor&#x27;s answers into it and presses its button, so
+     sign-ups, emails and the thank-you page keep working exactly as they do today. */
+(() =&gt; {
+  // Optional: a URL that should receive the sign-up as a JSON POST when there is no systeme.io
+  // form on the page. Left empty, a page without a systeme.io form sends nothing.
+  const FORM_ENDPOINT = &#x27;&#x27;;
+  const GSAP_SRC = [
+    &#x27;https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js&#x27;,
+    &#x27;https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js&#x27;,
+  ];
+
+  const $ = (s, c = document) =&gt; c.querySelector(s);
+  const $$ = (s, c = document) =&gt; [...c.querySelectorAll(s)];
+  const html = document.documentElement;
+  const reduce = matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+  const finePointer = matchMedia(&#x27;(hover: hover) and (pointer: fine)&#x27;).matches;
+
+  function start(restarted) {
+    const root = $(&#x27;#mpm&#x27;);
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = &#x27;1&#x27;;
+
+    // The intro only plays if the page was hidden before first paint (the tiny inline script
+    // that adds .js ran ahead of us). Otherwise the visitor has already seen the hero, so
+    // hiding it again to animate it in would just be a flicker.
+    const playIntro = html.classList.contains(&#x27;js&#x27;) &amp;&amp; !reduce &amp;&amp; !restarted;
+    html.classList.add(&#x27;js&#x27;);
+    if (reduce || !(&#x27;IntersectionObserver&#x27; in window)) html.classList.add(&#x27;static&#x27;);
+    if (!playIntro) html.classList.add(&#x27;no-intro&#x27;);
+
+    /* ---------- Fill the window when nested inside another page&#x27;s layout ---------- */
+    const fit = () =&gt; {
+      root.style.width = &#x27;&#x27;;
+      root.style.marginLeft = &#x27;&#x27;;
+      root.style.marginTop = &#x27;&#x27;;
+      const r = root.getBoundingClientRect();
+      const top = r.top + window.scrollY;
+      if (Math.abs(r.left) &lt; 1 &amp;&amp; Math.abs(r.width - html.clientWidth) &lt; 1 &amp;&amp; top &lt; 1) return;
+      root.style.width = `${html.clientWidth}px`;
+      root.style.marginLeft = `${-r.left}px`;
+      if (top &gt; 0 &amp;&amp; top &lt; 200) root.style.marginTop = `${-top}px`;
+    };
+    fit();
+    window.addEventListener(&#x27;resize&#x27;, fit);
+
+    /* ---------- Scroll reveals ---------- */
+    if (!html.classList.contains(&#x27;static&#x27;)) {
+      const io = new IntersectionObserver((entries) =&gt; {
+        entries.forEach((entry) =&gt; {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add(&#x27;in&#x27;);
+          io.unobserve(entry.target);
+        });
+      }, { threshold: .15, rootMargin: &#x27;0px 0px -6% 0px&#x27; });
+      $$(&#x27;.reveal&#x27;, root).forEach((el) =&gt; io.observe(el));
+    }
+
+    /* ---------- Nav state + progress bar ---------- */
+    const nav = $(&#x27;#nav&#x27;, root);
+    const bar = $(&#x27;.progress span&#x27;, root);
+    let ticking = false;
+    const onScroll = () =&gt; {
+      const y = window.scrollY;
+      const max = html.scrollHeight - window.innerHeight;
+      nav.classList.toggle(&#x27;scrolled&#x27;, y &gt; 24);
+      bar.style.setProperty(&#x27;--p&#x27;, max &gt; 0 ? (y / max).toFixed(4) : 0);
+      ticking = false;
+    };
+    window.addEventListener(&#x27;scroll&#x27;, () =&gt; {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    onScroll();
+
+    /* ---------- Pointer effects that need no library (mouse only) ---------- */
+    if (finePointer &amp;&amp; !reduce) {
+      const spotlight = (el, e) =&gt; {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        el.style.setProperty(&#x27;--mx&#x27;, `${(x * 100).toFixed(1)}%`);
+        el.style.setProperty(&#x27;--my&#x27;, `${(y * 100).toFixed(1)}%`);
+        return { x, y };
+      };
+      $$(&#x27;[data-tilt]&#x27;, root).forEach((el) =&gt; {
+        el.addEventListener(&#x27;pointermove&#x27;, (e) =&gt; {
+          const { x, y } = spotlight(el, e);
+          el.style.setProperty(&#x27;--ry&#x27;, `${((x - .5) * 9).toFixed(2)}deg`);
+          el.style.setProperty(&#x27;--rx&#x27;, `${((.5 - y) * 9).toFixed(2)}deg`);
+        });
+        el.addEventListener(&#x27;pointerleave&#x27;, () =&gt; {
+          el.style.setProperty(&#x27;--rx&#x27;, &#x27;0deg&#x27;);
+          el.style.setProperty(&#x27;--ry&#x27;, &#x27;0deg&#x27;);
+        });
+      });
+      const formCard = $(&#x27;.form&#x27;, root);
+      formCard.addEventListener(&#x27;pointermove&#x27;, (e) =&gt; spotlight(formCard, e));
+    }
+
+    /* ---------- CTAs scroll to the form and focus it ---------- */
+    const signup = $(&#x27;#signup&#x27;, root);
+    const firstField = $(&#x27;#first_name&#x27;, root);
+    $$(&#x27;[data-focus-form]&#x27;, root).forEach((link) =&gt; {
+      link.addEventListener(&#x27;click&#x27;, (e) =&gt; {
+        e.preventDefault();
+        signup.scrollIntoView({ behavior: reduce ? &#x27;auto&#x27; : &#x27;smooth&#x27;, block: &#x27;center&#x27; });
+        if (!firstField.closest(&#x27;[hidden]&#x27;)) setTimeout(() =&gt; firstField.focus({ preventScroll: true }), reduce ? 0 : 700);
+      });
+    });
+
+    /* ---------- Mobile sticky CTA: visible whenever the form is off screen ---------- */
+    const sticky = $(&#x27;#sticky&#x27;, root);
+    if (&#x27;IntersectionObserver&#x27; in window) {
+      new IntersectionObserver(([entry]) =&gt; {
+        sticky.classList.toggle(&#x27;show&#x27;, !entry.isIntersecting);
+      }, { threshold: .1 }).observe(signup);
+    }
+
+    /* ---------- The systeme.io form behind the page ---------- */
+    const findNative = () =&gt; {
+      const button = $(&#x27;[data-test-id=&quot;submit-form-button&quot;]&#x27;);
+      const form = button &amp;&amp; button.closest(&#x27;form&#x27;);
+      if (!form || root.contains(form) || form.contains(root)) return null;
+      return {
+        form,
+        button,
+        first_name: $(&#x27;input[name=&quot;first_name&quot;]&#x27;, form),
+        email: $(&#x27;input[name=&quot;email&quot;]&#x27;, form),
+        phone: $(&#x27;input[type=&quot;tel&quot;]&#x27;, form),
+        consent: $(&#x27;input[type=&quot;checkbox&quot;]&#x27;, form),
+      };
+    };
+
+    // Move something out of sight without removing it, so its scripts keep working.
+    const park = (el) =&gt; {
+      Object.assign(el.style, {
+        position: &#x27;absolute&#x27;, left: &#x27;-9999px&#x27;, top: &#x27;0&#x27;, width: &#x27;1px&#x27;, height: &#x27;1px&#x27;,
+        overflow: &#x27;hidden&#x27;, opacity: &#x27;0&#x27;, pointerEvents: &#x27;none&#x27;,
+      });
+      el.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
+      $$(&#x27;input, button, select, textarea, a&#x27;, el).forEach((n) =&gt; { n.tabIndex = -1; });
+    };
+
+    // Hide the old page content around the block. Nothing is deleted: removing the block
+    // from the page brings the old design straight back.
+    const isolate = (native) =&gt; {
+      const stop = $(&#x27;#app&#x27;) || document.body;
+      let node = root;
+      while (node.parentElement &amp;&amp; node.parentElement !== stop &amp;&amp; node.parentElement !== document.body) {
+        [...node.parentElement.children].forEach((sib) =&gt; {
+          if (sib === node || /^(SCRIPT|STYLE|LINK)$/.test(sib.tagName)) return;
+          if (sib.matches(&#x27;a[href*=&quot;systeme.io&quot;]&#x27;) || $(&#x27;a[href*=&quot;systeme.io&quot;]&#x27;, sib)) return;
+          if (sib.contains(native.form)) park(sib);
+          else sib.style.setProperty(&#x27;display&#x27;, &#x27;none&#x27;, &#x27;important&#x27;);
+        });
+        node = node.parentElement;
+      }
+      if (!root.contains(native.form)) park(native.form);
+    };
+
+    let native = null;
+    const phoneField = $(&#x27;#phone-field&#x27;, root);
+    (function waitForNative(tries) {
+      native = findNative();
+      if (native) {
+        html.classList.add(&#x27;mpm-live&#x27;);
+        isolate(native);
+        phoneField.hidden = !native.phone;
+        fit();
+        window.dispatchEvent(new Event(&#x27;resize&#x27;));
+        return;
+      }
+      // systeme.io builds its form after the page loads, so keep looking for a few seconds.
+      if (tries &lt; 100) setTimeout(() =&gt; waitForNative(tries + 1), 100);
+    })(0);
+
+    // React ignores a plain `input.value = x`; it only notices the prototype setter plus an event.
+    const setNativeValue = (el, value) =&gt; {
+      if (!el) return;
+      const d = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, &#x27;value&#x27;);
+      if (d &amp;&amp; d.set) d.set.call(el, value); else el.value = value;
+      el.dispatchEvent(new Event(&#x27;input&#x27;, { bubbles: true }));
+      el.dispatchEvent(new Event(&#x27;change&#x27;, { bubbles: true }));
+    };
+
+    // Every piece of text in the systeme.io form, except its button label.
+    const nativeText = (n) =&gt; {
+      const seen = new Set();
+      const walker = document.createTreeWalker(n.form, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const text = walker.currentNode.textContent.trim();
+        if (text &amp;&amp; !n.button.contains(walker.currentNode)) seen.add(text);
+      }
+      return seen;
+    };
+
+    // Hand the answers to systeme.io and wait to see what it does with them.
+    // Resolves on success; rejects with a message to show the visitor.
+    const sendThroughNative = (n, values) =&gt; new Promise((resolve, reject) =&gt; {
+      setNativeValue(n.first_name, values.first_name);
+      setNativeValue(n.email, values.email);
+      if (n.phone) setNativeValue(n.phone, values.phone);
+      if (n.consent &amp;&amp; !n.consent.checked) n.consent.click();
+
+      setTimeout(() =&gt; {
+        // Anything systeme.io writes into its form after this point is its answer (an error).
+        const before = nativeText(n);
+        n.button.click();
+        const started = Date.now();
+        const timer = setInterval(() =&gt; {
+          // systeme.io normally sends the visitor to the next page, which ends this script.
+          // If it swaps the form for its own thank-you message instead, the button disappears.
+          if (!document.contains(n.button)) { clearInterval(timer); resolve(); return; }
+          const fresh = [...nativeText(n)].filter((text) =&gt; !before.has(text));
+          if (fresh.length) {
+            clearInterval(timer);
+            reject(new Error(fresh[0].slice(0, 160)));
+          } else if (Date.now() - started &gt; 12000) {
+            clearInterval(timer);
+            reject(new Error(&#x27;That took longer than expected. Please try again.&#x27;));
+          }
+        }, 250);
+      }, 150);
+    });
+
+    /* ---------- Form ---------- */
+    const form = $(&#x27;#optin&#x27;, root);
+    const fields = {
+      first_name: { el: $(&#x27;#first_name&#x27;, root), test: (v) =&gt; v.trim().length &gt; 0, msg: &#x27;Please add your first name.&#x27; },
+      email: { el: $(&#x27;#email&#x27;, root), test: (v) =&gt; /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), msg: &#x27;Please enter a valid email address.&#x27; },
+      phone: { el: $(&#x27;#phone&#x27;, root), test: (v) =&gt; phoneField.hidden || v.replace(/\D/g, &#x27;&#x27;).length &gt;= 7, msg: &#x27;Please enter your phone number.&#x27; },
+    };
+    const consent = $(&#x27;#consent&#x27;, root);
+
+    const setError = (name, msg) =&gt; {
+      $(`#err-${name}`, root).textContent = msg || &#x27;&#x27;;
+      const field = fields[name];
+      if (field) {
+        field.el.closest(&#x27;.field&#x27;).classList.toggle(&#x27;invalid&#x27;, Boolean(msg));
+        field.el.setAttribute(&#x27;aria-invalid&#x27;, msg ? &#x27;true&#x27; : &#x27;false&#x27;);
+      }
+    };
+
+    Object.keys(fields).forEach((name) =&gt; {
+      fields[name].el.addEventListener(&#x27;input&#x27;, () =&gt; setError(name, &#x27;&#x27;));
+    });
+    consent.addEventListener(&#x27;change&#x27;, () =&gt; setError(&#x27;consent&#x27;, &#x27;&#x27;));
+
+    const showDone = (name, sent) =&gt; {
+      form.style.minHeight = `${form.offsetHeight}px`;
+      form.style.display = &#x27;grid&#x27;;
+      $(&#x27;.form-body&#x27;, root).hidden = true;
+      $(&#x27;#done-title&#x27;, root).textContent = `You&#x27;re in, ${name}.`;
+      $(&#x27;#preview-flag&#x27;, root).hidden = sent;
+      $(&#x27;#done&#x27;, root).hidden = false;
+    };
+
+    form.addEventListener(&#x27;submit&#x27;, async (e) =&gt; {
+      e.preventDefault();
+      let firstBad = null;
+      Object.entries(fields).forEach(([name, f]) =&gt; {
+        const ok = f.test(f.el.value);
+        setError(name, ok ? &#x27;&#x27; : f.msg);
+        if (!ok &amp;&amp; !firstBad) firstBad = f.el;
+      });
+      if (!consent.checked) {
+        setError(&#x27;consent&#x27;, &#x27;Please tick the box so we can email you the training.&#x27;);
+        if (!firstBad) firstBad = consent;
+      }
+      if (firstBad) {
+        firstBad.focus();
+        if (window.gsap &amp;&amp; !reduce) gsap.fromTo(form, { x: -8 }, { x: 0, duration: .6, ease: &#x27;elastic.out(1, .35)&#x27; });
+        return;
+      }
+
+      const button = $(&#x27;.btn-primary&#x27;, form);
+      const label = $(&#x27;.btn-label&#x27;, button);
+      const values = {
+        first_name: fields.first_name.el.value.trim(),
+        email: fields.email.el.value.trim(),
+        phone: fields.phone.el.value.trim(),
+      };
+      button.classList.add(&#x27;loading&#x27;);
+      label.textContent = &#x27;Sending…&#x27;;
+
+      try {
+        native = findNative() || native;
+        let sent = true;
+        if (native &amp;&amp; document.contains(native.button)) {
+          await sendThroughNative(native, values);
+        } else if (FORM_ENDPOINT) {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: &#x27;POST&#x27;,
+            headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; },
+            body: JSON.stringify({ ...values, consent: true }),
+          });
+          if (!res.ok) throw new Error(&#x27;Something went wrong. Please try again in a moment.&#x27;);
+        } else {
+          sent = false;
+          await new Promise((resolve) =&gt; setTimeout(resolve, 600));
+        }
+        showDone(values.first_name, sent);
+      } catch (err) {
+        console.error(err);
+        button.classList.remove(&#x27;loading&#x27;);
+        label.textContent = &#x27;Show me the system&#x27;;
+        setError(&#x27;consent&#x27;, err.message || &#x27;Something went wrong. Please try again in a moment.&#x27;);
+      }
+    });
+
+    /* ---------- Motion that needs GSAP ---------- */
+    const loadScript = (src) =&gt; new Promise((resolve, reject) =&gt; {
+      const s = document.createElement(&#x27;script&#x27;);
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+    const loadGsap = async () =&gt; {
+      const load = async () =&gt; {
+        if (!window.gsap) await loadScript(GSAP_SRC[0]);
+        if (!window.ScrollTrigger) await loadScript(GSAP_SRC[1]);
+      };
+      const timeout = new Promise((_, reject) =&gt; setTimeout(reject, 3500));
+      try { await Promise.race([load(), timeout]); return true; } catch (err) { return false; }
+    };
+
+    // Split the headline into masked words so each can slide up on its own.
+    const splitWords = (el) =&gt; {
+      const words = [];
+      el.setAttribute(&#x27;aria-label&#x27;, el.textContent.replace(/\s+/g, &#x27; &#x27;).trim());
+      const walk = (node) =&gt; {
+        [...node.childNodes].forEach((child) =&gt; {
+          if (child.nodeType === Node.TEXT_NODE) {
+            const frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach((part) =&gt; {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.append(&#x27; &#x27;); return; }
+              const mask = document.createElement(&#x27;span&#x27;);
+              const inner = document.createElement(&#x27;span&#x27;);
+              mask.className = &#x27;w&#x27;;
+              inner.className = &#x27;wi&#x27;;
+              inner.textContent = part;
+              mask.append(inner);
+              frag.append(mask);
+              words.push(inner);
+            });
+            child.replaceWith(frag);
+          } else if (child.nodeType === Node.ELEMENT_NODE &amp;&amp; child.tagName.toLowerCase() !== &#x27;svg&#x27;) {
+            walk(child);
+          }
+        });
+      };
+      walk(el);
+      return words;
+    };
+
+    const motion = () =&gt; {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const title = $(&#x27;[data-split]&#x27;, root);
+      if (playIntro &amp;&amp; title) {
+        const words = splitWords(title);
+        const hero = $$(&#x27;[data-hero]&#x27;, root);
+        const card = $(&#x27;[data-hero-card]&#x27;, root);
+        gsap.set(title, { visibility: &#x27;visible&#x27; });
+        gsap.set(hero, { y: 22 });
+        gsap.set(card, { y: 40, scale: .97 });
+        gsap.timeline({ delay: .15, defaults: { ease: &#x27;power4.out&#x27; } })
+          .from(words, { yPercent: 120, duration: 1.15, stagger: .05 })
+          .to($(&#x27;.hl-line path&#x27;, root), { strokeDashoffset: 0, duration: .9, ease: &#x27;power2.inOut&#x27; }, &#x27;-=.55&#x27;)
+          .to(hero, { opacity: 1, y: 0, duration: 1, stagger: .09 }, .5)
+          .to(card, { opacity: 1, y: 0, scale: 1, duration: 1.3 }, .35);
+      }
+
+      gsap.fromTo($(&#x27;#portrait&#x27;, root), { yPercent: -7 }, {
+        yPercent: 7, ease: &#x27;none&#x27;,
+        scrollTrigger: { trigger: $(&#x27;.portrait&#x27;, root), start: &#x27;top bottom&#x27;, end: &#x27;bottom top&#x27;, scrub: true },
+      });
+
+      const track = $(&#x27;#marquee&#x27;, root);
+      track.append($(&#x27;.band-set&#x27;, track).cloneNode(true));
+      const loop = gsap.to(track, { xPercent: -50, duration: 32, ease: &#x27;none&#x27;, repeat: -1 });
+      // Scrolling speeds the band up, then it eases back to its resting pace.
+      const settle = gsap.to(loop, { timeScale: 1, duration: 1.2, ease: &#x27;power2.out&#x27;, paused: true });
+      ScrollTrigger.create({
+        onUpdate(self) {
+          const boost = Math.min(Math.abs(self.getVelocity()) / 250, 6);
+          loop.timeScale(1 + boost);
+          settle.invalidate().restart();
+        },
+      });
+
+      if (finePointer) {
+        $$(&#x27;[data-magnetic]&#x27;, root).forEach((el) =&gt; {
+          const xTo = gsap.quickTo(el, &#x27;x&#x27;, { duration: .5, ease: &#x27;power3.out&#x27; });
+          const yTo = gsap.quickTo(el, &#x27;y&#x27;, { duration: .5, ease: &#x27;power3.out&#x27; });
+          el.addEventListener(&#x27;pointermove&#x27;, (e) =&gt; {
+            const r = el.getBoundingClientRect();
+            xTo((e.clientX - (r.left + r.width / 2)) * .18);
+            yTo((e.clientY - (r.top + r.height / 2)) * .3);
+          });
+          el.addEventListener(&#x27;pointerleave&#x27;, () =&gt; { xTo(0); yTo(0); });
+        });
+      }
+    };
+
+    if (reduce) {
+      html.classList.add(&#x27;no-intro&#x27;);
+    } else {
+      loadGsap().then((ok) =&gt; {
+        if (ok &amp;&amp; window.gsap &amp;&amp; window.ScrollTrigger) motion();
+        else html.classList.add(&#x27;no-intro&#x27;);
+      });
+    }
+
+    aurora($(&#x27;#aurora&#x27;, root));
+
+    // If the host page rebuilds our markup after load, the new copy has no listeners.
+    // Notice that and set it up again, without replaying the intro.
+    let checks = 0;
+    const watchdog = setInterval(() =&gt; {
+      const current = $(&#x27;#mpm&#x27;);
+      if (current &amp;&amp; current !== root &amp;&amp; !current.dataset.ready) { clearInterval(watchdog); start(true); }
+      else if (++checks &gt; 15) clearInterval(watchdog);
+    }, 1000);
+  }
+
+  /* ---------- Hero background: a slow WebGL colour field ---------- */
+  function aurora(canvas) {
+    const gl = canvas &amp;&amp; canvas.getContext(&#x27;webgl&#x27;, { antialias: false, alpha: false, powerPreference: &#x27;low-power&#x27; });
+    if (!gl) return;
+
+    const vert = &#x27;attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}&#x27;;
+    const frag = `
+      precision mediump float;
+      uniform vec2 r; uniform float t; uniform vec2 m;
+      float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+        return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
+      float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i&lt;4;i++){v+=a*n(p);p=p*2.+vec2(3.1,1.7);a*=.5;}return v;}
+      void main(){
+        vec2 uv=gl_FragCoord.xy/r;
+        vec2 p=uv; p.x*=r.x/r.y;
+        vec2 q=p*1.25+vec2(t*.030,-t*.022)+(m-.5)*.35;
+        float a=fbm(q+fbm(q*1.4+t*.05));
+        float b=fbm(q*1.8-vec2(t*.04,0.)+a);
+        vec3 cream=vec3(.973,.965,.949);
+        vec3 plum=vec3(.431,.306,.451);
+        vec3 blush=vec3(.914,.780,.753);
+        vec3 gold=vec3(.851,.647,.376);
+        vec3 c=cream;
+        c=mix(c,blush,smoothstep(.40,.80,a)*.70);
+        c=mix(c,plum,smoothstep(.50,.90,b)*.34);
+        c=mix(c,gold,smoothstep(.30,.60,a*b)*.30);
+        // Keep the left side, where the headline sits, calm.
+        c=mix(cream,c,.35+.65*smoothstep(.05,.95,uv.x));
+        gl_FragColor=vec4(c,1.);
+      }`;
+
+    const compile = (type, src) =&gt; {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    };
+    const vs = compile(gl.VERTEX_SHADER, vert);
+    const fs = compile(gl.FRAGMENT_SHADER, frag);
+    if (!vs || !fs) return;
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, &#x27;p&#x27;);
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const uR = gl.getUniformLocation(prog, &#x27;r&#x27;);
+    const uT = gl.getUniformLocation(prog, &#x27;t&#x27;);
+    const uM = gl.getUniformLocation(prog, &#x27;m&#x27;);
+    const mouse = { x: .5, y: .5, tx: .5, ty: .5 };
+
+    // The field is soft, so half resolution is plenty and keeps phones cool.
+    const resize = () =&gt; {
+      const scale = Math.min(window.devicePixelRatio || 1, 2) * .5;
+      canvas.width = Math.max(1, Math.round(canvas.clientWidth * scale));
+      canvas.height = Math.max(1, Math.round(canvas.clientHeight * scale));
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uR, canvas.width, canvas.height);
+    };
+    const draw = (ms) =&gt; {
+      mouse.x += (mouse.tx - mouse.x) * .04;
+      mouse.y += (mouse.ty - mouse.y) * .04;
+      gl.uniform1f(uT, ms / 1000 + 40);
+      gl.uniform2f(uM, mouse.x, mouse.y);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+
+    resize();
+    window.addEventListener(&#x27;resize&#x27;, () =&gt; { resize(); if (reduce) draw(0); });
+    if (reduce) { draw(0); return; }
+
+    window.addEventListener(&#x27;pointermove&#x27;, (e) =&gt; {
+      mouse.tx = e.clientX / window.innerWidth;
+      mouse.ty = 1 - e.clientY / window.innerHeight;
+    }, { passive: true });
+
+    let visible = true;
+    let raf = 0;
+    const frame = (ms) =&gt; { draw(ms); raf = visible ? requestAnimationFrame(frame) : 0; };
+    new IntersectionObserver(([entry]) =&gt; {
+      visible = entry.isIntersecting;
+      if (visible &amp;&amp; !raf) raf = requestAnimationFrame(frame);
+    }).observe(canvas);
+    raf = requestAnimationFrame(frame);
+  }
+
+  start(false);
+})();
+&lt;/script&gt;
+</textarea>
+  </main>
+
+  <script>
+    const button = document.querySelector('#copy');
+    const code = document.querySelector('#code');
+    button.addEventListener('click', async () => {
+      let ok = false;
+      try { await navigator.clipboard.writeText(code.value); ok = true; } catch (err) {
+        // Older browsers, or a page opened straight from a file: fall back to select-and-copy.
+        code.select();
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      }
+      button.textContent = ok ? 'Copied. Now go to step 2' : 'Could not copy';
+      button.classList.toggle('done', ok);
+      document.querySelector('#copy-help').hidden = ok;
+    });
+  </script>
+</body>
+</html>

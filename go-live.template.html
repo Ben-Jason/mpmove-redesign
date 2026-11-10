@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>MP Move — how to put the new page live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream: #F8F6F2; --paper: #fff; --ink: #1E1722; --soft: #5B5160; --plum: #6E4E73; --deep: #2A1B2E; --tint: #EFE7F0; --gold: #D9A560; --line: rgba(110, 78, 115, .18); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 17px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 96px; }
+    h1, h2, h3, p, ol, ul { margin: 0; }
+    h1 { font: 500 clamp(2.2rem, 7vw, 3.4rem)/1.05 "Playfair Display", Georgia, serif; letter-spacing: -.02em; }
+    h1 em { color: var(--plum); }
+    h2 { margin-top: 56px; font: 500 1.7rem/1.2 "Playfair Display", Georgia, serif; }
+    p { margin-top: 14px; }
+    .lede { font-size: 1.15rem; color: var(--soft); }
+    .label { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--plum); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 16px 26px; border: 0; border-radius: 999px; background: var(--deep); color: var(--cream); font: 600 16px/1 Inter, sans-serif; text-decoration: none; cursor: pointer; transition: background-color .25s, transform .25s; }
+    .btn:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn.done { background: #2F6B4F; }
+    .need { margin-top: 28px; padding: 16px 20px; border-radius: 16px; background: var(--tint); }
+    .need p { margin: 0; }
+    ol.steps { margin-top: 24px; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 16px; }
+    ol.steps > li { counter-increment: step; position: relative; padding: 24px 24px 26px 76px; background: var(--paper); border-radius: 20px; box-shadow: 0 0 0 1px var(--line); }
+    ol.steps > li::before { content: counter(step); position: absolute; left: 22px; top: 22px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--deep); color: var(--cream); font: 500 1.1rem "Playfair Display", serif; }
+    ol.steps h3 { font-size: 1.15rem; font-weight: 600; }
+    ol.steps p { margin-top: 8px; color: var(--soft); }
+    ol.steps ul { margin: 10px 0 0; padding-left: 20px; color: var(--soft); }
+    ol.steps li li { margin-top: 4px; }
+    b { color: var(--ink); font-weight: 600; }
+    .note { margin-top: 14px; padding: 12px 16px; border-left: 3px solid var(--gold); background: #FBF4E8; border-radius: 0 12px 12px 0; color: var(--ink); }
+    .plain { margin-top: 18px; padding-left: 20px; color: var(--soft); }
+    .plain li { margin-top: 10px; }
+    textarea { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .tiny { font-size: 14px; color: var(--soft); }
+    @media (max-width: 520px) { ol.steps > li { padding: 70px 20px 22px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">MP Move · for Marius</p>
+    <h1>Your new page is <em>ready.</em></h1>
+    <p class="lede">
+      This is a redesign of mpmove.com. Have a look first. If you like it, the four steps below put it
+      live in about ten minutes. Nothing changes on your site unless you follow them.
+    </p>
+    <a class="btn" href="index.html">See the new page →</a>
+
+    <h2>Putting it live</h2>
+    <p>
+      The new page goes on top of your current page inside systeme.io. It uses the sign-up form you
+      already have, so your sign-ups, your emails and your thank-you page keep working the way they do
+      now. Your link in bio stays the same.
+    </p>
+    <div class="need"><p><b>You need:</b> a computer (not your phone) and your systeme.io login.</p></div>
+
+    <ol class="steps">
+      <li>
+        <h3>Copy the code</h3>
+        <p>Press the button. The whole new page is copied, ready to paste.</p>
+        <button class="btn" id="copy" type="button">Copy the code</button>
+        <p class="tiny" id="copy-help" hidden>If nothing was copied, open the file <b>paste-into-systeme.txt</b> that came with this, select everything in it and copy that.</p>
+      </li>
+      <li>
+        <h3>Open your page in systeme.io</h3>
+        <p>
+          Log in, go to <b>Funnels</b>, open the funnel that holds your mpmove.com page, click the page
+          with the sign-up form, then click <b>Edit page</b>.
+        </p>
+      </li>
+      <li>
+        <h3>Add one block and paste</h3>
+        <ul>
+          <li>In the panel on the left, find the element called <b>Raw HTML</b>.</li>
+          <li>Drag it onto the page, right at the top, above your headline.</li>
+          <li>Click the new block, click <b>Edit code</b>, paste, and click <b>Save</b>.</li>
+          <li>Save the page with the save button at the top of the editor.</li>
+        </ul>
+        <p class="note">
+          Leave everything else on the page exactly as it is. Do not delete your old headline, pictures
+          or form. The new block covers them, and it needs your form to be there.
+        </p>
+      </li>
+      <li>
+        <h3>Test it before you tell anyone</h3>
+        <p>
+          Open mpmove.com in a private (incognito) window. The preview inside the editor does not show
+          the new block. Only the real page does.
+        </p>
+        <p>Sign up with your own name, email and phone number. Then check three things:</p>
+        <ul>
+          <li>You land on your usual thank-you page.</li>
+          <li>Your usual emails arrive.</li>
+          <li>You appear under <b>Contacts</b> in systeme.io.</li>
+        </ul>
+        <p class="note">
+          Please do not skip this. The new page has been checked on its own, but it has not been tried
+          inside your systeme.io account yet. This test is the proof that sign-ups still reach you.
+        </p>
+      </li>
+    </ol>
+
+    <h2>If you want your old page back</h2>
+    <p>
+      Open the editor again, click the Raw HTML block, delete it, and save. Your old page is back
+      exactly as it was, because nothing else was changed.
+    </p>
+
+    <h2>Worth knowing</h2>
+    <ul class="plain">
+      <li>
+        <b>Phone number.</b> The new form asks for a phone number because your current form requires
+        one. If you would rather not ask for it, delete the phone field from your old form in the
+        editor. The new page then stops asking for it by itself.
+      </li>
+      <li>
+        <b>Wording to check.</b> The consent line still names Lizelle de Kock and Digital Magnetic
+        System, and one section still says "Trusted by thousands". Both were copied from your current
+        page. The line at the very bottom about results not being guaranteed is new.
+      </li>
+      <li>
+        <b>Changes.</b> If you want different words, colours or sections, tell Ben-Jason. You will get
+        a new code to paste over the old one, in the same block.
+      </li>
+      <li>
+        <b>If the test sign-up shows an error about the phone number,</b> delete the phone field from
+        your old form as described above, save, and test again.
+      </li>
+      <li>
+        <b>If the test fails another way or something looks wrong,</b> delete the block to get your old
+        page back and send Ben-Jason a screenshot.
+      </li>
+    </ul>
+
+    <textarea id="code" readonly aria-hidden="true" tabindex="-1">{{CODE}}</textarea>
+  </main>
+
+  <script>
+    const button = document.querySelector('#copy');
+    const code = document.querySelector('#code');
+    button.addEventListener('click', async () => {
+      let ok = false;
+      try { await navigator.clipboard.writeText(code.value); ok = true; } catch (err) {
+        // Older browsers, or a page opened straight from a file: fall back to select-and-copy.
+        code.select();
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      }
+      button.textContent = ok ? 'Copied. Now go to step 2' : 'Could not copy';
+      button.classList.toggle('done', ok);
+      document.querySelector('#copy-help').hidden = ok;
+    });
+  </script>
+</body>
+</html>

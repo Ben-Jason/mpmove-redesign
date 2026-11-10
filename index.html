@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MP Move — Free beginner training for building an online business</title>
+  <meta name="description" content="Learn the beginner-friendly system helping everyday people start an online business. No experience, no huge following, no complicated tech.">
+  <meta name="theme-color" content="#F8F6F2">
+  <!-- This copy is a preview. The live page runs inside systeme.io, so keep search engines off this one. -->
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232A1B2E'/%3E%3Cpath d='M16 44V22l10 13 10-13v22' fill='none' stroke='%23F8F6F2' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='47' cy='42' r='4' fill='%23D9A560'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<!-- mpm:start (everything between the markers is what build.py turns into the systeme.io block) -->
+<div id="mpm">
+  <a class="skip" href="#signup">Skip to the sign-up form</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <div class="nav" id="nav" role="banner">
+    <a class="logo" href="#top" aria-label="MP Move, back to top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16"/><path d="M16 44V22l10 13 10-13v22"/><circle cx="47" cy="42" r="4"/></svg>
+      </span>
+      <span class="logo-word">MP <em>Move</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Page sections">
+      <a href="#about">About Marius</a>
+      <a href="#inside">What's inside</a>
+      <a href="#trust">Why join</a>
+    </nav>
+    <a class="btn btn-small" href="#signup" data-focus-form>
+      <span>Free training</span>
+      <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <canvas class="hero-canvas" id="aurora" aria-hidden="true"></canvas>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-hero>
+            <span class="pulse" aria-hidden="true"></span>
+            100% free beginner training
+          </p>
+
+          <h1 class="hero-title" data-split>
+            Learn how
+            <span class="hl">everyday people<svg class="hl-line" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12C52 4 98 3 150 8s98 6 147-3"/></svg></span>
+            are building online businesses in 2026
+          </h1>
+
+          <p class="hero-kicker" data-hero>
+            <span>No experience.</span>
+            <span>No huge following.</span>
+            <span>No complicated tech.</span>
+          </p>
+
+          <p class="hero-lede" data-hero>
+            Learn the beginner-friendly system helping everyday people start an online business,
+            without needing a huge audience, creating products from scratch, or figuring everything out alone.
+          </p>
+
+          <a class="scroll-cue" href="#about" data-hero>
+            <span class="scroll-cue-line" aria-hidden="true"></span>
+            Meet Marius
+          </a>
+        </div>
+
+        <div class="hero-form" id="signup" data-hero-card>
+          <div class="card-glow" aria-hidden="true"></div>
+          <form class="form" id="optin" novalidate>
+            <div class="form-body">
+              <p class="form-tag">Free training</p>
+              <h2 class="form-title">See the system for yourself</h2>
+              <p class="form-sub">Tell me where to send it and you'll get instant access.</p>
+
+              <div class="field">
+                <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder=" " required>
+                <label for="first_name">First name</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-first_name" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder=" " required>
+                <label for="email">Email address</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-email" role="alert"></p>
+              </div>
+
+              <!-- Shown only when the systeme.io form behind the page asks for a phone number. -->
+              <div class="field" id="phone-field" hidden>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder=" ">
+                <label for="phone">Phone number</label>
+                <span class="field-line" aria-hidden="true"></span>
+                <p class="field-error" id="err-phone" role="alert"></p>
+              </div>
+
+              <label class="consent" for="consent">
+                <input id="consent" name="consent" type="checkbox" required>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path pathLength="1" d="M3.5 8.5l3 3 6-7"/></svg>
+                </span>
+                <span class="consent-text">
+                  I agree to receive emails, resources, and promotional messages from Lizelle de Kock and
+                  Digital Magnetic System. I can unsubscribe at any time.
+                </span>
+              </label>
+              <p class="field-error" id="err-consent" role="alert"></p>
+
+              <button class="btn btn-primary" type="submit" data-magnetic>
+                <span class="btn-label">Show me the system</span>
+                <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+                <span class="btn-shine" aria-hidden="true"></span>
+              </button>
+
+              <p class="form-note">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="2"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></svg>
+                We respect your privacy. Your information is safe and will never be shared.
+              </p>
+            </div>
+
+            <div class="form-done" id="done" hidden aria-live="polite">
+              <svg class="done-tick" viewBox="0 0 64 64" aria-hidden="true">
+                <circle pathLength="1" cx="32" cy="32" r="28"/>
+                <path pathLength="1" d="M20 33l8 8 16-18"/>
+              </svg>
+              <h2 class="form-title" id="done-title">You're in.</h2>
+              <p class="form-sub">Check your inbox. The training is on its way.</p>
+              <p class="preview-flag" id="preview-flag" hidden>Preview mode: the form is not connected yet, so nothing was sent.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="band" aria-label="Free training. No experience needed. Start from anywhere.">
+      <div class="band-track" id="marquee" aria-hidden="true">
+        <div class="band-set">
+          <span>100% free training</span><i></i>
+          <span><em>No experience</em> needed</span><i></i>
+          <span>Start from anywhere</span><i></i>
+          <span>100% free training</span><i></i>
+          <span><em>No experience</em> needed</span><i></i>
+          <span>Start from anywhere</span><i></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <figure class="portrait reveal">
+          <div class="portrait-frame" aria-hidden="true"></div>
+          <div class="portrait-img">
+            <img id="portrait" src="https://d1yei2z3i6k35z.cloudfront.net/19617979/6aeaf56224b564.09677293_image_2026-11-04_110538305.png" alt="Marius standing outdoors on a lawn" loading="lazy" width="640" height="640">
+          </div>
+          <figcaption class="portrait-tag">
+            <span class="pulse" aria-hidden="true"></span> Marius, founder of MP Move
+          </figcaption>
+        </figure>
+
+        <div class="about-copy">
+          <p class="section-label reveal">Your guide</p>
+          <h2 class="section-title reveal" style="--d:.05s">Hi, I'm <em>Marius.</em></h2>
+          <p class="about-big reveal" style="--d:.1s">
+            I'm in my mid 20s, three years into the corporate world, but entrepreneurship has always been my dream.
+          </p>
+          <p class="about-body reveal" style="--d:.15s">
+            If you're ready to explore new opportunities, build a business of your own, and work toward
+            greater financial freedom, let's get started.
+          </p>
+          <a class="link reveal" style="--d:.2s" href="#signup" data-focus-form>
+            Get the free training
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLARS -->
+    <section class="inside" id="inside">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label reveal">What's inside</p>
+          <h2 class="section-title reveal" style="--d:.05s">A simpler way to <em>start.</em></h2>
+        </div>
+
+        <ol class="pillars">
+          <li class="pillar reveal" data-tilt>
+            <span class="pillar-num">01</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect pathLength="1" x="6" y="9" width="36" height="24" rx="4"/>
+              <path pathLength="1" d="M18 41h12M24 33v8"/>
+              <path pathLength="1" d="M14 25l6-6 5 4 9-8"/>
+            </svg>
+            <h3>Simple strategies</h3>
+            <p>No complicated tech or confusing business models.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.08s" data-tilt>
+            <span class="pillar-num">02</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M10 16h28l-2.5 22a3 3 0 01-3 2.700h-17a3 3 0 01-3-2.700z"/>
+              <path pathLength="1" d="M17 20v-5a7 7 0 0114 0v5"/>
+              <path pathLength="1" d="M19 30l3.500 3.500L29 27"/>
+            </svg>
+            <h3>Digital products</h3>
+            <p>Learn how digital products can become the foundation of your online business.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.16s" data-tilt>
+            <span class="pillar-num">03</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M6 40h9v-8h9v-8h9v-8h9"/>
+              <path pathLength="1" d="M33 8h9v9"/>
+              <circle pathLength="1" cx="12" cy="20" r="3.500"/>
+            </svg>
+            <h3>Beginner friendly</h3>
+            <p>Designed for people starting from scratch.</p>
+          </li>
+          <li class="pillar reveal" style="--d:.24s" data-tilt>
+            <span class="pillar-num">04</span>
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <circle pathLength="1" cx="17" cy="16" r="6"/>
+              <path pathLength="1" d="M5 39c0-7 5-12 12-12s12 5 12 12"/>
+              <circle pathLength="1" cx="34" cy="19" r="4.500"/>
+              <path pathLength="1" d="M32 28c6-.500 11 3.500 11 10"/>
+            </svg>
+            <h3>Support every step</h3>
+            <p>You do not have to figure everything out alone.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TRUST + FINAL CTA -->
+    <section class="trust" id="trust">
+      <div class="trust-orb" aria-hidden="true"></div>
+      <div class="wrap">
+        <ul class="trust-list">
+          <li class="reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect pathLength="1" x="10" y="21" width="28" height="20" rx="5"/>
+              <path pathLength="1" d="M16 21v-6a8 8 0 0116 0v6"/>
+              <path pathLength="1" d="M24 29v5"/>
+            </svg>
+            <h3>Private &amp; secure</h3>
+            <p>Your information is safe and will never be shared.</p>
+          </li>
+          <li class="reveal" style="--d:.1s">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M24 5l15 6v11c0 10-6.500 17-15 21-8.500-4-15-11-15-21V11z"/>
+              <path pathLength="1" d="M17 24l5 5 9-10"/>
+            </svg>
+            <h3>Trusted by thousands</h3>
+            <p>Join thousands of people learning how to build modern online businesses.</p>
+          </li>
+          <li class="reveal" style="--d:.2s">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+              <path pathLength="1" d="M24 40S7 30 7 18a9 9 0 0117-4 9 9 0 0117 4c0 12-17 22-17 22z"/>
+              <path pathLength="1" d="M15 23h5l3-5 4 9 2.500-4H34"/>
+            </svg>
+            <h3>Beginner friendly</h3>
+            <p>Step-by-step training designed for real people starting from scratch.</p>
+          </li>
+        </ul>
+
+        <div class="cta">
+          <h2 class="cta-title reveal">Ready to see how it <em>works?</em></h2>
+          <p class="cta-sub reveal" style="--d:.08s">The training is free, and you can start from anywhere.</p>
+          <a class="btn btn-light reveal" style="--d:.16s" href="#signup" data-focus-form data-magnetic>
+            <span class="btn-label">Show me the system</span>
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer" role="contentinfo">
+    <div class="wrap footer-grid">
+      <a class="logo" href="#top" aria-label="MP Move, back to top">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16"/><path d="M16 44V22l10 13 10-13v22"/><circle cx="47" cy="42" r="4"/></svg>
+        </span>
+        <span class="logo-word">MP <em>Move</em></span>
+      </a>
+      <p class="footer-note">
+        This training is educational. Building a business takes time and effort, results vary from person
+        to person, and no income is guaranteed.
+      </p>
+      <p class="footer-copy">© 2026 MP Move</p>
+    </div>
+  </div>
+
+  <a class="sticky-cta" id="sticky" href="#signup" data-focus-form>
+    <span>Get the free training</span>
+    <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+  </a>
+</div>
+<!-- mpm:end -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
